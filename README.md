@@ -74,11 +74,7 @@ taskyyyymmddhh***
 
   ### Product BackLog Lista
 
-  - [task20191217000](../../issues/*) exempel
-  - [task20191218004](../../issues/4) exempel
-  - [task20191218037](../../issues/37) exempel
-  - [task20191218256](../../issues/256) exempel
-  - [task20191218999](../../issues/999) exempel
+  - [task20191220001](../../issues/1) 
 
 [Gå up](#Innehållsförteckning).
 
@@ -92,14 +88,13 @@ taskyyyymmddhh***
   **Sprint BackLog Lista**
 
   - [task20191217000](../../issues/*) => Tom Cruise
-  - [task20191218999](../../issues/999) => Michael Jackson
-
+  
 [Gå up](#Innehållsförteckning).
 
 ### IN PROGRESS
 
 - [task20191217000](../../issues/*) => Mark Noffler
-- [task20191217022](../../issues/22) => Leo Messi
+
 
 [Gå up](#Innehållsförteckning).
 
