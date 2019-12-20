@@ -74,7 +74,7 @@ taskyyyymmddhh***
 
   ### Product BackLog Lista
 
-  - [task20191220001](../../issues/1) 
+   
 
 [Gå up](#Innehållsförteckning).
 
@@ -88,6 +88,7 @@ taskyyyymmddhh***
   **Sprint BackLog Lista**
 
   - [task20191217000](../../issues/*) => Tom Cruise
+  - [task20191220001](../../issues/1) => Ibrahim
   
 [Gå up](#Innehållsförteckning).
 
