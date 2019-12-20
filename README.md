@@ -73,7 +73,7 @@ taskyyyymmddhh***
 - EXEMPEL [task20191218999](../../issues/999) //task skapad den 18 december 2019 med nummer 999
 
   ### Product BackLog Lista
-
+  - [task20191217000](../../issues/*) => Tom Cruise // Exempel
    
 
 [Gå up](#Innehållsförteckning).
@@ -83,25 +83,24 @@ taskyyyymmddhh***
 - Här ska varje task ha ett namn av developer som utvecklas den.
 - Värje utvecklare ska flytta sin task i KANBAN
 
-  ### TODO
+### TODO
 
   **Sprint BackLog Lista**
 
-  - [task20191217000](../../issues/*) => Tom Cruise
   - [task20191220001](../../issues/1) => Ibrahim
   
 [Gå up](#Innehållsförteckning).
 
 ### IN PROGRESS
 
-- [task20191217000](../../issues/*) => Mark Noffler
+- [task20191217000](../../issues/*) => Mark Noffler //exempel
 
 
 [Gå up](#Innehållsförteckning).
 
 ### DONE
 
-- [task20191218999](../../issues/999) => Master of Universe
+- [task20191218999](../../issues/999) => Master of Universe // exempel
 
 [Gå up](#Innehållsförteckning).
 
