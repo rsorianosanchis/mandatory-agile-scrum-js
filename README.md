@@ -166,7 +166,7 @@ Du som utvecklare ska utvecklas varje feature/task igenom att skapa en ny branch
 
 12. Trycka på **Create pull request**
 
-13. När du får ett positica svar, flytta din task i Kanbas till [DONE](#DONE)
+13. När du får ett positiva svar, flytta din task i Kanbas till [DONE](#DONE)
 
 [Gå up](#Innehållsförteckning).
 
