@@ -109,7 +109,7 @@ taskyyyymmddhh***
 
 [Gå up](#Innehållsförteckning).
 
-## Utvecklingsförfarande 🖇️
+## Utvecklingsförfarande 
 
 - Här beskrivs allt som man behöver för att utveckla en sprintuppgift.
 
