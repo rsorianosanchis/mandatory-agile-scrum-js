@@ -96,6 +96,7 @@ taskyyyymmddhh***
 ### IN PROGRESS
 
 - [task20191217000](../../issues/*) => Mark Noffler //exempel
+- [task20200102004](../../issues/4) => Ricardo
 
 [Gå up](#Innehållsförteckning).
 
