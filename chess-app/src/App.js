@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MatchLista from './components/MatchLista';
+import NewGame from './components/NewGame';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  state = { allGAmes: [] };
+
+  createNewGame = data => {
+    console.log(data);
+    // esto es extra aqui en App para agregar al state de App
+    const allGamesUpsdate = [...this.state.allGames, data];
+    this.setState({ allGAmes: allGamesUpsdate });
+  };
+  render() {
+    return (
+      <div className='container'>
+        <div className='row'>
+          <NewGame createNewGame={this.createNewGame} />
+          <MatchLista allGames={this.state.allGames} />
+        </div>
+      </div>
+    );
+  }
 }
-
-export default App;
