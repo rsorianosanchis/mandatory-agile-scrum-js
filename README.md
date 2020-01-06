@@ -36,10 +36,12 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet modi ullam mai
 - **Product Owner**
   - Niklas S
 - **Scrum Master**
+  - Hesham
   - Ibrahim
   - Philip Anlander
   - Ricardo
 - **Development Team**
+  - Hesham
   - Ibrahim
   - Philip Anlander
   - Ricardo
