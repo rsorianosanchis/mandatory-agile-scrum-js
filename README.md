@@ -99,13 +99,12 @@ taskyyyymmddhh***
 ### IN PROGRESS
 
 - [task20200102004](../../issues/4) => Ricardo
+- [task20191220001](../../issues/1) => Ibrahim
 - [task20200102005](../../issues/5) => Ricardo
 
 [Gå up](#Innehållsförteckning).
 
 ### DONE
-
-- [task20191220001](../../issues/1) => Ibrahim
 
 [Gå up](#Innehållsförteckning).
 
