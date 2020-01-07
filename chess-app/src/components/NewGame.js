@@ -49,7 +49,7 @@ class NewGame extends Component {
     // }
     const nyGame = { ...this.state.game };
     // man skapar här ett id med uuid library
-    nyGame.id = uuid();
+    nyGame.id = uuid('uuid/v4');
     // här vi skickar  data till App.js igenom props function
     this.props.createNewGame(nyGame);
     this.setState({ ...initialState });

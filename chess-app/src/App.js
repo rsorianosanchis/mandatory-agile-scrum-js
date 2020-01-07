@@ -17,7 +17,7 @@ export default class App extends Component {
       <div className='container'>
         <div className=''>
           <NewGame createNewGame={this.createNewGame} />
-          {/* <MatchLista allGames={this.state.allGames} /> */}
+          <MatchLista allGames={this.state.allGames} />
         </div>
       </div>
     );
