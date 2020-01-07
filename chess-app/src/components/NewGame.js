@@ -86,7 +86,7 @@ class NewGame extends Component {
           </div>
         </div>
         {/*----------------*/}
-        {/* <div className='form-group row'>
+        <div className='form-group row'>
           <label className=''>Spelare 1 Color</label>
           <div className=''>
             <input
@@ -109,7 +109,7 @@ class NewGame extends Component {
             <br />
           </div>
         </div>
-        ---------------- */}
+
         <input type='submit' className='' value='Add' />
       </form>
     );
