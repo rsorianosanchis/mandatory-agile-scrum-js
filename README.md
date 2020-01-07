@@ -107,7 +107,7 @@ taskyyyymmddhh***
 ### DONE
 
 - [task20191220001](../../issues/1) => Ibrahim
-- [task20191220003](../../issues/3) => Ricardo
+- [task20191218999](../../issues/999) => Master of Universe // exempel
 
 [Gå up](#Innehållsförteckning).
 
