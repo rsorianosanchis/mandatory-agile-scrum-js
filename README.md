@@ -52,8 +52,8 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet modi ullam mai
 
 - **Teammöten**
   - _Fredagen 20 Dec 2019_, syfte: Skapa Backlog och Features for Sprint 1 och start Sprint 1. Förslag
-  - _Torsdag 02 Gen 2020_. Förslag
-  - _Tisdag 07 Gen 2020_.
+  - _Torsdag 07 Gen 2020_. Möte 2
+  - _Tisdag 09 Gen 2020_. Möte 3
 
 [Gå up](#Innehållsförteckning).
 
