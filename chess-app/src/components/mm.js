@@ -21,14 +21,14 @@ class NewGame extends Component {
     console.log(e.target);
     console.log(e.target.name + ':' + e.target.value);
     this.setState({
-      game: { ...this.state.game, [e.target.name]: e.target.value }
+      cita: { ...this.state.game, [e.target.name]: e.target.value }
     });
   };
 
   handleSubmit = e => {
-    console.log('thi is hndlesubmit');
-
     e.preventDefault();
+    console.log('from handlesubmt');
+
     //här vi tar värde
     const {
       spelare1,
@@ -37,18 +37,17 @@ class NewGame extends Component {
       spelare2Color
     } = this.state.game;
     //validation
-    // if (
-    //   spelare1 === '' ||
-    //   spelare2 === '' ||
-    //   spelare1Color === '' ||
-    //   spelare2Color === ''
-    // ) {
-    //   this.setState({ error: true });
-    //   //if error stopps
-    //   return;
-    // }
+    if (
+      spelare1 === '' ||
+      spelare2 === '' ||
+      spelare1Color === '' ||
+      spelare2Color === ''
+    ) {
+      this.setState({ error: true });
+      //if error stopps
+      return;
+    }
     const nyGame = { ...this.state.game };
-    // man skapar här ett id med uuid library
     nyGame.id = uuid();
     // här vi skickar  data till App.js igenom props function
     this.props.createNewGame(nyGame);
@@ -57,7 +56,7 @@ class NewGame extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form>
         <div className='form-group row'>
           <label className=''>Spelare 1</label>
           <div className=''>
@@ -86,7 +85,7 @@ class NewGame extends Component {
           </div>
         </div>
         {/*----------------*/}
-        {/* <div className='form-group row'>
+        <div className='form-group row'>
           <label className=''>Spelare 1 Color</label>
           <div className=''>
             <input
@@ -109,8 +108,8 @@ class NewGame extends Component {
             <br />
           </div>
         </div>
-        ---------------- */}
-        <input type='submit' className='' value='Add' />
+        {/*----------------*/}
+        <input type='submit' value='Add' onClick={this.handleSubmit} />
       </form>
     );
   }
