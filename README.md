@@ -91,14 +91,13 @@ taskyyyymmddhh***
 
 **Sprint BackLog Lista**
 
+- [task20200102007](../../issues/7) => Philip
 - [task20200102006](../../issues/6) => Hesham
-- [task20191217000](../../issues/*) => Mark Noffler //exempel
 
 [Gå up](#Innehållsförteckning).
 
 ### IN PROGRESS
 
-- [task20191217000](../../issues/*) => Mark Noffler //exempel
 - [task20200102004](../../issues/4) => Ricardo
 - [task20200102005](../../issues/5) => Ricardo
 
@@ -107,7 +106,6 @@ taskyyyymmddhh***
 ### DONE
 
 - [task20191220001](../../issues/1) => Ibrahim
-- [task20191218999](../../issues/999) => Master of Universe // exempel
 
 [Gå up](#Innehållsförteckning).
 
