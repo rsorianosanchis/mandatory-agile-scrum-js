@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+//import './App.css';
 import './bootstrap.min.css';
 import MatchLista from './components/MatchLista';
 
@@ -34,6 +34,7 @@ export default class App extends Component {
     return (
       <div className='container'>
         <div className=''>
+          <h4>Chess project</h4>
           <MatchLista allGames={this.state.allGames} />
         </div>
       </div>
