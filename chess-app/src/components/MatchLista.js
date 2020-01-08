@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Game from './Game';
 
 const MatchLista = ({ allGames }) => {
   return (
-    <div>
-      {/* {allGames.map(game => {
-        return <Game data={game} />;
-      })} */}
-    </div>
+    <Fragment>
+      {allGames.map(game => {
+        return <Game key={game.id} data={game} />;
+      })}
+    </Fragment>
   );
 };
 

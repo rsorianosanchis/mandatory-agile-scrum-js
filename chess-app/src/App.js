@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import './bootstrap.min.css';
 import MatchLista from './components/MatchLista';
 
 export default class App extends Component {
