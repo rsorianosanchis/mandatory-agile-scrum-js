@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import MatchLista from './components/MatchLista';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  state = { allGames: [] };
+
+  async componentDidMount() {
+    this.getGames();
+  }
+
+  componentDidUpdate() {
+    // if något händer vi tar alGames från localstorage
+    const memmory = localStorage.getItem('games');
+    this.setState({ allGames: JSON.parse(memmory) });
+  }
+
+  // GET data function från server, det körs i comopnentDidMunt
+  getGames = async () => {
+    const axios = require('axios');
+    try {
+      const response = await axios.get('/api/seeks');
+      console.log(response);
+      this.setState({ allGames: response.allGames });
+      // här vi gör en copy i local storage
+      localStorage.setItem('games', JSON.stringify(this.state.allGames));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  render() {
+    return (
+      <div className='container'>
+        <div className=''>
+          <MatchLista allGames={this.state.allGames} />
+        </div>
+      </div>
+    );
+  }
 }
-
-export default App;
