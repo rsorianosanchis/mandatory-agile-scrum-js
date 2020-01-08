@@ -2,7 +2,7 @@ import React from 'react';
 
 const Game = ({ data }) => {
   const handleClick = () => {
-    //go to spel and fill spelare 2
+    //accept to play with spelare 1
   };
   return (
     <div className='media mt-3'>
