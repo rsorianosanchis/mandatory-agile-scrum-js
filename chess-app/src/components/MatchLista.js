@@ -4,9 +4,9 @@ import Game from './Game';
 const MatchLista = ({ allGames }) => {
   return (
     <div>
-      {allGames.map(game => {
+      {/* {allGames.map(game => {
         return <Game data={game} />;
-      })}
+      })} */}
     </div>
   );
 };
