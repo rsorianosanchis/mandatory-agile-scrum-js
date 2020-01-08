@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 //import './App.css';
 import './bootstrap.min.css';
 import MatchLista from './components/MatchLista';
+import NewGame from './components/NewGame';
 
 export default class App extends Component {
   state = { allGames: [] };
@@ -36,6 +37,7 @@ export default class App extends Component {
         <div className=''>
           <h4>Chess project</h4>
           <MatchLista allGames={this.state.allGames} />
+          <NewGame />
         </div>
       </div>
     );
