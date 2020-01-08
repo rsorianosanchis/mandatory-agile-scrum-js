@@ -91,13 +91,12 @@ taskyyyymmddhh***
 
 **Sprint BackLog Lista**
 
-- [task20200102007](../../issues/7) => Philip
-- [task20200102006](../../issues/6) => Hesham
-
 [Gå up](#Innehållsförteckning).
 
 ### IN PROGRESS
 
+- [task20200102007](../../issues/7) => Philip
+- [task20200102006](../../issues/6) => Hesham
 - [task20200102004](../../issues/4) => Ricardo
 - [task20191220001](../../issues/1) => Ibrahim
 - [task20200102005](../../issues/5) => Ricardo
@@ -108,7 +107,7 @@ taskyyyymmddhh***
 
 - [task20200102003](../../issues/3) => Ricardo
 
-  [Gå up](#Innehållsförteckning).
+[Gå up](#Innehållsförteckning).
 
 ## Utvecklingsförfarande
 
