@@ -29,39 +29,46 @@ class NewGame extends Component {
     console.log('thi is hndlesubmit');
 
     e.preventDefault();
-    //här vi tar värde
-    const {
-      spelare1,
-      spelare2,
-      spelare1Color,
-      spelare2Color
-    } = this.state.game;
-    //validation
-    // if (
-    //   spelare1 === '' ||
-    //   spelare2 === '' ||
-    //   spelare1Color === '' ||
-    //   spelare2Color === ''
-    // ) {
-    //   this.setState({ error: true });
-    //   //if error stopps
-    //   return;
-    // }
+    //här vi tar värde som behöver att skapa en ny spel
+    const { spelare1, spelare1Color } = this.state.game;
+    //validation att förmulär är fullt
+    if (spelare1 === '' || spelare1Color === '') {
+      this.setState({ error: true });
+      console.log('fyll förmulär');
+
+      //if error stops
+      return;
+    }
     const nyGame = { ...this.state.game };
     // man skapar här ett id med uuid library (pending att ta bort om det gör i backend)
     nyGame.id = uuid('uuid/v4');
     if (nyGame.spelare1Color === 'white') {
       nyGame.spelare2Color = 'black';
+    } else {
+      nyGame.spelare2Color = 'white';
     }
     // här vi skickar  data till server POST
+    console.log(nyGame);
+    // Send a POST request
+    const axios = require('axios');
+    axios({
+      method: 'post',
+      url: '/api/seeks',
+      data: nyGame
+    });
 
     // här vi gör reset i förmulär
     this.setState({ ...initialState });
   };
 
   render() {
+    const { error } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
+        <h5>Create new game</h5>
+        {error ? (
+          <div className='alert alert-danger mt-1 mb-1'>Form incomplet !</div>
+        ) : null}
         <div className='form-group row'>
           <label className=''>Spelare 1</label>
           <div className=''>
@@ -71,20 +78,6 @@ class NewGame extends Component {
               placeholder='Namn Spelare 1'
               name='spelare1'
               value={this.state.game.spelare1}
-              onChange={this.handleChange}
-            />
-          </div>
-        </div>
-        {/*----------------*/}
-        <div className='form-group row'>
-          <label className=''>Spelare 2</label>
-          <div className=''>
-            <input
-              type='text'
-              className='form-control'
-              placeholder='Namn Spelare 2'
-              name='spelare2'
-              value={this.state.game.spelare2}
               onChange={this.handleChange}
             />
           </div>
@@ -113,8 +106,7 @@ class NewGame extends Component {
             <br />
           </div>
         </div>
-
-        <input type='submit' className='' value='Add' />
+        <input type='submit' className='btn btn-success' value='Add' />
       </form>
     );
   }
