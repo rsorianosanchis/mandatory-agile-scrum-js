@@ -106,7 +106,9 @@ taskyyyymmddhh***
 
 ### DONE
 
-[Gå up](#Innehållsförteckning).
+- [task20200102003](../../issues/3) => Ricardo
+
+  [Gå up](#Innehållsförteckning).
 
 ## Utvecklingsförfarande
 
