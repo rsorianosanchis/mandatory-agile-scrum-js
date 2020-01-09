@@ -8,10 +8,6 @@ const Game = ({ data }) => {
     <div className='media mt-3'>
       <div className='media-body'>
         <p className='card-text'>
-          <span>Fecha:</span>
-          {data.fecha}
-        </p>
-        <p className='card-text'>
           <span>Spelares</span>
           {data.spelare1}
           {data.spelare1Color}-vs-{data.spelare2}
