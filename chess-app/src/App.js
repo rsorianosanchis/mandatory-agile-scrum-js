@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 //import './App.css';
 import './bootstrap.min.css';
 import MatchLista from './components/MatchLista';
-<<<<<<< HEAD
 import NewGame from './components/NewGame';
-=======
+
 const axios = require('axios');
->>>>>>> feature/task20200102004
 
 export default class App extends Component {
   state = { allGames: [] };
