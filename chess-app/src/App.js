@@ -35,7 +35,7 @@ export default class App extends Component {
     return (
       <div className='container'>
         <div className=''>
-          <h4>Chess project</h4>
+          <h4 className='title'>Chess project</h4>
           <MatchLista allGames={this.state.allGames} />
           <NewGame />
         </div>
