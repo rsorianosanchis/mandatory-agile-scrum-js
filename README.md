@@ -36,10 +36,14 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet modi ullam mai
 - **Product Owner**
   - Niklas S
 - **Scrum Master**
+  - Hesham
   - Ibrahim
+  - Philip Anlander
   - Ricardo
 - **Development Team**
+  - Hesham
   - Ibrahim
+  - Philip Anlander
   - Ricardo
 
 [Gå up](#Innehållsförteckning).
@@ -48,8 +52,8 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet modi ullam mai
 
 - **Teammöten**
   - _Fredagen 20 Dec 2019_, syfte: Skapa Backlog och Features for Sprint 1 och start Sprint 1. Förslag
-  - _Torsdag 02 Gen 2020_. Förslag
-  - _Tisdag 07 Gen 2020_.
+  - _Torsdag 07 Gen 2020_. Möte 2
+  - _Tisdag 09 Gen 2020_. Möte 3
 
 [Gå up](#Innehållsförteckning).
 
@@ -73,8 +77,8 @@ taskyyyymmddhh***
 - EXEMPEL [task20191218999](../../issues/999) //task skapad den 18 december 2019 med nummer 999
 
   ### Product BackLog Lista
+
   - [task20191217000](../../issues/*) => Tom Cruise // Exempel
-   
 
 [Gå up](#Innehållsförteckning).
 
@@ -85,26 +89,27 @@ taskyyyymmddhh***
 
 ### TODO
 
-  **Sprint BackLog Lista**
+**Sprint BackLog Lista**
 
-  - [task20191220001](../../issues/1) => Ibrahim
-  
 [Gå up](#Innehållsförteckning).
 
 ### IN PROGRESS
 
-- [task20191217000](../../issues/*) => Mark Noffler //exempel
-
+- [task20200102007](../../issues/7) => Philip
+- [task20200102006](../../issues/6) => Hesham
+- [task20200102004](../../issues/4) => Ricardo
+- [task20191220001](../../issues/1) => Ibrahim
+- [task20200102005](../../issues/5) => Ricardo
 
 [Gå up](#Innehållsförteckning).
 
 ### DONE
 
-- [task20191218999](../../issues/999) => Master of Universe // exempel
+- [task20200102003](../../issues/3) => Ricardo
 
 [Gå up](#Innehållsförteckning).
 
-## Utvecklingsförfarande 
+## Utvecklingsförfarande
 
 - Här beskrivs allt som man behöver för att utveckla en sprintuppgift.
 
