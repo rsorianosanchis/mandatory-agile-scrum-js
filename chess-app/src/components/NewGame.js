@@ -26,7 +26,7 @@ class NewGame extends Component {
   };
 
   handleSubmit = e => {
-    console.log('thi is hndlesubmit');
+    console.log('this is hndlesubmit');
 
     e.preventDefault();
     //här vi tar värde som behöver att skapa en ny spel
@@ -70,7 +70,7 @@ class NewGame extends Component {
           <div className='alert alert-danger mt-1 mb-1'>Form incomplet !</div>
         ) : null}
         <div className='form-group row'>
-          <label className=''>Spelare 1</label>
+          <label className='.label'>Spelare 1</label>
           <div className=''>
             <input
               type='text'

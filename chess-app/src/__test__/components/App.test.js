@@ -8,7 +8,7 @@ describe('<App />', () => {
     expect(app.length).toEqual(1);
   });
 
-  test('test render component throw button text', () => {
+  test('test render component throw title', () => {
     expect(app.find('.title').text()).toEqual('Chess project');
   });
 });
