@@ -18,24 +18,18 @@ class NewGame extends Component {
   state = { ...initialState };
 
   handleChange = e => {
-    console.log(e.target);
-    console.log(e.target.name + ':' + e.target.value);
     this.setState({
       game: { ...this.state.game, [e.target.name]: e.target.value }
     });
   };
 
   handleSubmit = e => {
-    console.log('this is hndlesubmit');
-
     e.preventDefault();
     //här vi tar värde som behöver att skapa en ny spel
     const { spelare1, spelare1Color } = this.state.game;
     //validation att förmulär är fullt
     if (spelare1 === '' || spelare1Color === '') {
       this.setState({ error: true });
-      console.log('fyll förmulär');
-
       //if error stops
       return;
     }
@@ -47,9 +41,6 @@ class NewGame extends Component {
     } else {
       nyGame.spelare2Color = 'white';
     }
-    // här vi skickar  data till server POST
-    console.log(nyGame);
-    // Send a POST request
     const axios = require('axios');
     axios({
       method: 'post',
