@@ -3,12 +3,12 @@ import logo from './logo.svg';
 import './App.css';
 const axios = require('axios');
 
-let obj = {
+/* let obj = {
   spelare1 : "hesham",
   spelare4 : "Ric",
-}
+} */
 
-axios.post("http://localhost:4000/api/seeks",obj)
+axios.get("http://localhost:4000/api/seeks")
 .then(res=>{console.log(res)})
 
 

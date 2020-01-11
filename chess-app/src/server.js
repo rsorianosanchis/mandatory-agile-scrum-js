@@ -36,6 +36,12 @@ app.post("/api/seeks",(req,res)=>{
     res.send("dd")
 })
 
+//get all matches 
+app.get("/api/seeks",(req,res)=>{
+    let arr = matchlista.list
+    console.log(arr)
+    res.send(arr)
+})
 
 app.listen(port, () => console.log(`Server runningg on port 4000!`))
 app.listen(() => {
