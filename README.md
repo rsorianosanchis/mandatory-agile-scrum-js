@@ -125,7 +125,8 @@ taskyyyymmddhh***
 Branch strategi genomföras att ha två huvudbranch: master och develop:
 
 - **master:** det kommer att vara branch som kommer att innehålla koden som tas i produktion.
-- **develop:** det är den branch som kommer att innehålla koden under utveckling.
+- **develop:** det är den branch som kommer att innehålla koden under utveckling efter varje PR.
+- **previous:** det är branchen som man kan gör push/pull och merge allt som helst för att testa sin eget branch med dem andra kamaraters kode innan gör sin PR till develop.
 
 ```plain
 Du som utvecklare ska utvecklas varje feature/task igenom att skapa en ny branch från _develop_ branchen. Och den här feature branchen ska inte merge till develope tills feature har slutförts.
