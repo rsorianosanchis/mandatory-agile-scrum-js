@@ -1,0 +1,57 @@
+body {
+  color: white;
+  background: #BC9E82;
+  font-size: 20px;
+  margin:0;
+  padding: 0;
+}
+
+
+h5 {
+  font-size: 20px;
+
+
+}
+
+/* Form - New Game */
+
+
+form {
+  background: rgba(0,0,0, 0.32);
+  width: 20%;
+  height: 50vh;
+  padding: 10px;
+}
+
+
+
+h3.lista {
+  background: rgba(0,0,0, 0.32);
+  font-size: 20px;
+  width: 20%;
+  padding: 10px;
+  height: 100vh;
+}
+
+ /* Add btn */
+
+.btn  {
+  font-size: 15px;
+  background: black;
+  box-shadow: 0;
+  border:none;
+  transition: all 1000ms;
+}
+
+.btn:hover  {
+  background: white;
+  color: black;
+
+}
+
+/* --------------- */
+
+.container{
+  padding: 0;
+  max-width: 100%;
+}
