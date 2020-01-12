@@ -20,10 +20,10 @@ app.post("/api/seeks",(req,res)=>{
     console.log(obj)
     console.log(Object.keys(obj).length)
     console.log("api seeks")
-    if(Object.keys(obj).length > 2){
+/*     if(Object.keys(obj).length > 2){
         res.status(400).send("fel data").end()
         return
-    }
+    } */
     arr.push(obj)
     let makenew = {
         "list":arr
@@ -33,7 +33,7 @@ app.post("/api/seeks",(req,res)=>{
         if (err) throw err;
         
       })
-    res.send("dd")
+    res.send("Datab sparat to the server")
 })
 
 //get all matches 
@@ -42,6 +42,9 @@ app.get("/api/seeks",(req,res)=>{
     console.log(arr)
     res.send(arr)
 })
+
+//update a match 
+
 
 app.listen(port, () => console.log(`Server runningg on port 4000!`))
 app.listen(() => {

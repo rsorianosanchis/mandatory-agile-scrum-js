@@ -3,12 +3,28 @@ import logo from './logo.svg';
 import './App.css';
 const axios = require('axios');
 
-/* let obj = {
-  spelare1 : "hesham",
-  spelare4 : "Ric",
-} */
+let obj = {
+  "gameUUID": {
+      "players": {
+          "Black": "ibo",
+          "White": "jhon"
+      },
+      "chessmans": "rnbqkbnr/1ppppp1p/6p1/p7/7P/2PP4/PP2PPP1/RNBQKBNR b KQkq h3 0 3",
+      "owner": "ibo"
+  },
+  "gameUUsID": {
+      "players": {
+          "Black": "alex",
+          "White": null
+      },
+      "chessmans": "rnbqkbnr/1ppppp1p/6p1/p7/7P/2PP4/PP2PPP1/RNBQKBNR b KQkq h3 0 3",
+      "owner": "alex"
+  }
+}
 
-axios.get("http://localhost:4000/api/seeks")
+
+
+axios.post("http://localhost:4000/api/seeks",obj)
 .then(res=>{console.log(res)})
 
 
