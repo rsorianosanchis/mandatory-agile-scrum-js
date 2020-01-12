@@ -43,6 +43,13 @@ app.get("/api/seeks",(req,res)=>{
     res.send(arr)
 })
 
+//acceptera en match
+
+app.post("/api/seeks/:id",(req,res)=>{
+    let arr = matchlista.list
+    
+})
+
 //update a match 
 
 
