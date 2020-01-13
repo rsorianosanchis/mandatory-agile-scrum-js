@@ -48,7 +48,6 @@ app.post("/api/seeks",(req,res)=>{
 //get all matches 
 app.get("/api/seeks",(req,res)=>{
     let arr = matchlista.list
-    console.log(arr)
     res.send(arr)
 })
 
@@ -68,7 +67,30 @@ app.post("/api/seeks/:id",(req,res)=>{
 })
 
 //update a match 
-
+app.put("/api/seeks/:id",(req,res)=>{
+    console.log("updateing a match")
+    let arr = matchlista.list
+    let obj = req.body
+    let id = parseInt(req.params.id)
+    function hitta (n) {
+        return n.id === id
+    }
+    let result = arr.find(hitta)
+    let annat = arr.filter(function(n){
+        return n !== result
+    })
+    console.log(annat)
+    annat.push(obj)
+    let makenew = {
+        "list":annat
+    }
+    let data = JSON.stringify(makenew)
+    fs.writeFile('./lista.json',data,(err) => {
+        if (err) throw err;
+        
+      })
+    res.send(arr)
+})
 
 app.listen(port, () => console.log(`Server runningg on port 4000!`))
 app.listen(() => {
