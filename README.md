@@ -1,8 +1,13 @@
 # mandatory-agile-scrum-js
 
 # Projektbeskrivning
-
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet modi ullam maiores, molestias repellendus aperiam, voluptatem quo voluptatum eligendi illum sint dolorum, officiis ducimus in. Sed reiciendis cum beatae praesentium.
+● I den här kursen ska vi i grupper av fyra bygga en schack applikation.
+● Varje grupp ska självständigt driva arbetet enligt agila principer.
+● Varje grupp får själva välja om de vill använda ett ramverk, installera bibliotek
+eller liknande.
+● Varje veckosprint och design-beslut i projektet ska dokumenteras i GIT, genom
+att en PR läggs upp och godkänna av teamet.
+● Projektet måste följa ett antal fördefinierade grundprinciper
 
 # Innehållsförteckning
 
