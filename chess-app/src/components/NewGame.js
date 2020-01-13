@@ -4,12 +4,13 @@ import uuid from 'uuid';
 const initialState = {
   game: {
     id: '',
-    allMoves: [],
+    // allMoves: [],
     spelare1: '',
-    spelare2: '',
+    spelare2: null,
     spelare1Color: '',
-    spelare2Color: '',
-    turnToMove: 'white'
+    spelare2Color: null,
+    turnToMove: 'white',
+    owner: ''
   },
   error: false
 };
@@ -41,10 +42,11 @@ class NewGame extends Component {
     } else {
       nyGame.spelare2Color = 'white';
     }
+    nyGame.owner = nyGame.spelare1;
     const axios = require('axios');
     axios({
       method: 'post',
-      url: '/api/seeks',
+      url: 'http://localhost:4000/api/seeks',
       data: nyGame
     });
 
