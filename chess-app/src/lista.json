@@ -1,1 +1,67 @@
-{"list":[{"id":"bb8a71d3-de60-4a9d-a6ce-8e2e278d5fff","players":{"Black":"uu","White":""},"chessmans":null,"owner":"uu"},{"id":"c77a592d-d273-4c8d-92d8-42c4599cf177","players":{"Black":"DDD","White":""},"chessmans":null,"owner":"DDD"},{"id":"1a842fce-902b-4d45-b6ec-a5815e1a6eae","players":{"Black":"","White":"a12"},"chessmans":null,"owner":"a12"},{"id":"65dc18e0-96fd-47e3-87d9-092f44a815de","players":{"Black":"eee","White":""},"chessmans":null,"owner":"eee"},{"id":"af8a429c-19ba-405b-aab4-b0dd18e819ea","players":{"Black":"eee","White":""},"chessmans":null,"owner":"eee"},{"id":"3ebad0a7-e86a-4927-bf25-8be209075872","players":{"Black":"","White":"iii"},"chessmans":null,"owner":"iii"}]}
+{
+  "list": [
+    {
+      "id": "bb8a71d3-de60-4a9d-a6ce-8e2e278d5fff",
+      "players": {
+        "Black": "uu",
+        "White": ""
+      },
+      "chessmans": null,
+      "owner": "uu"
+    },
+    {
+      "id": "c77a592d-d273-4c8d-92d8-42c4599cf177",
+      "players": {
+        "Black": "DDD",
+        "White": ""
+      },
+      "chessmans": null,
+      "owner": "DDD"
+    },
+    {
+      "id": "1a842fce-902b-4d45-b6ec-a5815e1a6eae",
+      "players": {
+        "Black": "",
+        "White": "a12"
+      },
+      "chessmans": null,
+      "owner": "a12"
+    },
+    {
+      "id": "65dc18e0-96fd-47e3-87d9-092f44a815de",
+      "players": {
+        "Black": "eee",
+        "White": ""
+      },
+      "chessmans": null,
+      "owner": "eee"
+    },
+    {
+      "id": "af8a429c-19ba-405b-aab4-b0dd18e819ea",
+      "players": {
+        "Black": "eee",
+        "White": ""
+      },
+      "chessmans": null,
+      "owner": "eee"
+    },
+    {
+      "id": "3ebad0a7-e86a-4927-bf25-8be209075872",
+      "players": {
+        "Black": "uuu",
+        "White": "iii"
+      },
+      "chessmans": null,
+      "owner": "iii"
+    },
+    {
+      "id": "297dfd33-0e37-4bc3-a877-8cd65b0ff935",
+      "players": {
+        "Black": "rrr",
+        "White": ""
+      },
+      "chessmans": null,
+      "owner": "rrr"
+    }
+  ]
+}
