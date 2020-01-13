@@ -54,6 +54,7 @@ class NewGame extends Component {
     console.log(nyGame);
 
 
+
     axios({
       method: 'post',
       url: 'http://localhost:4000/api/seeks',
@@ -64,6 +65,7 @@ class NewGame extends Component {
     console.log('RESET');
 
     this.setState({ ...initialState });
+    nyGame = { ...initialState };
 
 
   };

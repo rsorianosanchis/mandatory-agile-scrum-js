@@ -1,24 +1,63 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+const axios = require('axios');
 
-
+const initialState = {
+  game: {
+    id: '',
+    players: {
+      Black: "",
+      White: ""
+    },
+    chessmans: null,
+    owner: "",
+  }
+};
 
 class Game extends Component {
-  //state = { ...initialState };
+  state = { ...initialState };
 
   handleClick = (e) => {
-    console.log('testing apela matchen');
-    console.log(e.target);
-    console.log(this.props.data.id);
-    console.log(this.props.data);
+    e.preventDefault();
+    console.log('click for play');
+    this.getGameFromServer();
+
+  };
+
+  getGameFromServer = async () => {
+    try {
+      const response = await axios.get(`http://localhost:4000/api/game/${this.props.data.id}`);
+      console.log(response.data);
 
 
+      this.setState({ game: response.data });
+      let updateGame = { ...this.state.game }
+
+      //this.setState({ game.players.: response.data });
+
+      // Här ska jag göra prompt 
+      const enteredName = prompt('Please enter your name');
+      //this.setState({ enteredName: enteredName })
+      if (this.state.game.players.Black === '') {
+        updateGame.players.Black = enteredName;
+      } else {
+        updateGame.players.White = enteredName;
+      }
+      // Här ska jag göra PUT
+      axios({
+        method: 'put',
+        url: 'http://localhost:4000/api/seeks',
+        data: updateGame
+      });
 
 
+      //reset
+      this.setState({ ...initialState });
+      updateGame = { ...initialState }
 
-    // const enteredName = prompt('Please enter your name')
-
-
-    // this.setState({ enteredName: enteredName })
+      console.log(this.state.game);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   render() {
