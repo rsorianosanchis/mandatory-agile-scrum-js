@@ -15,11 +15,20 @@ app.get('/',(req,res)=>{
 
 //creating a new match 
 app.post("/api/seeks",(req,res)=>{
+    console.log("creating match")
     let obj = req.body
     let arr = matchlista.list
     console.log(obj)
-    console.log(Object.keys(obj).length)
-    console.log("api seeks")
+    let id = obj.id
+    console.log(id)
+    function hitta (n) {
+        return n.id === id
+    }
+    if(arr.find(hitta)){
+        console.log("user sent wrong data a response to change sending")
+        res.status(400).send("ID already exist pleas change it").end()
+        return
+    }
 /*     if(Object.keys(obj).length > 2){
         res.status(400).send("fel data").end()
         return
