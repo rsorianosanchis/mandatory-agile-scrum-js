@@ -15,7 +15,6 @@ let obj =  {
 }
 
 
-export default class App extends Component {
 
 axios.put("http://localhost:4000/api/seeks/113",obj)
 .then(res=>{console.log(res)})
@@ -43,3 +42,5 @@ function App() {
     </div>
   );
 }
+
+export default App
