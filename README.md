@@ -96,16 +96,18 @@ taskyyyymmddhh***
 ### IN PROGRESS
 
 - [task20200102007](../../issues/7) => Philip
-- [task20200102006](../../issues/6) => Hesham
-- [task20200102004](../../issues/4) => Ricardo
+- [task20200102013](../../issues/13) => Hesham
 - [task20191220001](../../issues/1) => Ibrahim
-- [task20200102005](../../issues/5) => Ricardo
+- [task20200113015](../../issues/15) => Ricardo
 
 [Gå up](#Innehållsförteckning).
 
 ### DONE
-
+- [task20200102006](../../issues/6) => Hesham
 - [task20200102003](../../issues/3) => Ricardo
+- [task20200113011](../../issues/11) => Ricardo
+- [task20200102005](../../issues/5) => Ricardo
+- [task20200102004](../../issues/4) => Ricardo
 
 [Gå up](#Innehållsförteckning).
 
