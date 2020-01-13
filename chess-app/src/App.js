@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+//import './App.css';
+import './bootstrap.min.css';
+import MatchLista from './components/MatchLista';
+import NewGame from './components/NewGame';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+
+
+  render() {
+    return (
+      <div className='container'>
+        <div className=''>
+          <h4 className='title'>Chess project</h4>
+          <NewGame />
+          <MatchLista />
+
+        </div>
+      </div>
+    );
+  }
 }
-
-export default App;
