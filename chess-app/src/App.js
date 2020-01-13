@@ -3,7 +3,23 @@ import './App.css';
 import './bootstrap.min.css';
 import MatchLista from './components/MatchLista';
 import NewGame from './components/NewGame';
-import GameBoard from './components/gameBoard';
+const axios = require('axios');
+
+let obj =  {
+  "id": 112,
+  "players": {
+      "Black": "ibo",
+      "White": "jhon"
+  },
+  "chessmans": "rnbqkbnr/1ppppp1p/6p1/p7/7P/2PP4/PP2PPP1/RNBQKBNR b KQkq h3 0 3",
+  "owner": "ibo"
+}
+
+
+
+axios.post("http://localhost:4000/api/seeks/112")
+.then(res=>{console.log(res)})
+
 
 const axios = require('axios');
 
