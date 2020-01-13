@@ -6,20 +6,23 @@ import NewGame from './components/NewGame';
 const axios = require('axios');
 
 let obj =  {
-  "id": 112,
+  "id": 113,
   "players": {
       "Black": "ibo",
       "White": "jhon"
   },
   "chessmans": "rnbqkbnr/1ppppp1p/6p1/p7/7P/2PP4/PP2PPP1/RNBQKBNR b KQkq h3 0 3",
-  "owner": "ibo"
+  "owner": "ibo",
+  "test": "sss"
 }
 
 
 
-axios.post("http://localhost:4000/api/seeks/112")
+axios.put("http://localhost:4000/api/seeks/223",obj)
 .then(res=>{console.log(res)})
 
+axios.get("http://localhost:4000/api/seeks")
+.then(res=>{console.log(res)})
 
 const axios = require('axios');
 
@@ -58,3 +61,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default App
