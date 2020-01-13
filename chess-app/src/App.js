@@ -3,24 +3,24 @@ import logo from './logo.svg';
 import './App.css';
 const axios = require('axios');
 
-let obj =  {
-  "id": 113,
+let obj = {
+  "id": 223,
   "players": {
-      "Black": "ibo",
-      "White": "jhon"
+    "Black": "ibo",
+    "White": "jhon"
   },
   "chessmans": "rnbqkbnr/1ppppp1p/6p1/p7/7P/2PP4/PP2PPP1/RNBQKBNR b KQkq h3 0 3",
   "owner": "ibo",
-  "test": "ric"
+  "test": "hesham"
 }
 
 
 
-axios.put("http://localhost:4000/api/seeks/113",obj)
-.then(res=>{console.log(res)})
+axios.put("http://localhost:4000/api/seeks/223", obj)
+  .then(res => { console.log(res) })
 
 axios.get("http://localhost:4000/api/seeks")
-.then(res=>{console.log(res)})
+  .then(res => { console.log(res) })
 
 function App() {
   return (
