@@ -12,8 +12,9 @@ export default class App extends Component {
       <div className='container'>
         <div className=''>
           <h4 className='title'>Chess project</h4>
-          <MatchLista />
           <NewGame />
+          <MatchLista />
+
         </div>
       </div>
     );
