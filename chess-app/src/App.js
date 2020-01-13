@@ -6,7 +6,7 @@ import NewGame from './components/NewGame';
 const axios = require('axios');
 
 let obj = {
-  "id": 112,
+  "id": 1332,
   "players": {
     "Black": "ibo",
     "White": "jhon"
@@ -17,11 +17,11 @@ let obj = {
 
 
 
-axios.post("http://localhost:4000/api/seeks/112")
+axios.get("http://localhost:4000/api/seeks")
   .then(res => { console.log(res) })
 
 
-const axios = require('axios');
+
 
 export default class App extends Component {
   state = { allGames: [] };
