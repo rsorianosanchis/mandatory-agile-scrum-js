@@ -3,28 +3,19 @@ import logo from './logo.svg';
 import './App.css';
 const axios = require('axios');
 
-let obj = {
-  "gameUUID": {
-      "players": {
-          "Black": "ibo",
-          "White": "jhon"
-      },
-      "chessmans": "rnbqkbnr/1ppppp1p/6p1/p7/7P/2PP4/PP2PPP1/RNBQKBNR b KQkq h3 0 3",
-      "owner": "ibo"
+let obj =  {
+  "id": 112,
+  "players": {
+      "Black": "ibo",
+      "White": "jhon"
   },
-  "gameUUsID": {
-      "players": {
-          "Black": "alex",
-          "White": null
-      },
-      "chessmans": "rnbqkbnr/1ppppp1p/6p1/p7/7P/2PP4/PP2PPP1/RNBQKBNR b KQkq h3 0 3",
-      "owner": "alex"
-  }
+  "chessmans": "rnbqkbnr/1ppppp1p/6p1/p7/7P/2PP4/PP2PPP1/RNBQKBNR b KQkq h3 0 3",
+  "owner": "ibo"
 }
 
 
 
-axios.post("http://localhost:4000/api/seeks",obj)
+axios.post("http://localhost:4000/api/seeks/112")
 .then(res=>{console.log(res)})
 
 

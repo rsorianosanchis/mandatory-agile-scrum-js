@@ -47,7 +47,15 @@ app.get("/api/seeks",(req,res)=>{
 
 app.post("/api/seeks/:id",(req,res)=>{
     let arr = matchlista.list
-    
+    let id =  parseInt(req.params.id)
+    console.log(id)
+    console.log("post")
+    function hitta (n) {
+        return n.id === id
+    }
+    let result = arr.find(hitta)
+    console.log(result)
+    res.send(result)
 })
 
 //update a match 
