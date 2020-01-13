@@ -8,15 +8,13 @@ const Game = ({ data }) => {
     <div className='media mt-3'>
       <div className='media-body'>
         <p className='card-text'>
-          <p className='card-text'>
-            <span>Match Owner:</span>
-            {data.owner}
-          </p>
-          <span>Spelares</span>
-          {data.owner}
-          {data.players.White === data.owner ? 'White' : 'Black'}-vs-{data.spelare2}
-          {data.spelare2Color}
+          <span>Match Owner:  {data.owner}</span>
         </p>
+
+        <span>Spelares: {data.owner} -vs- {data.spelare2 === '' ? data.spelare2 : 'Wainting en spelare'} </span>
+
+
+
 
         {data.spelare1 !== '' ? (
           <div className='btn btn-sm btn-warning' onClick={handleClick}>
