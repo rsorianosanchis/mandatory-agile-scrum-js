@@ -11,12 +11,12 @@ let obj =  {
   },
   "chessmans": "rnbqkbnr/1ppppp1p/6p1/p7/7P/2PP4/PP2PPP1/RNBQKBNR b KQkq h3 0 3",
   "owner": "ibo",
-  "test": "ric"
+  "test": "sss"
 }
 
 
 
-axios.put("http://localhost:4000/api/seeks/113",obj)
+axios.put("http://localhost:4000/api/seeks/223",obj)
 .then(res=>{console.log(res)})
 
 axios.get("http://localhost:4000/api/seeks")

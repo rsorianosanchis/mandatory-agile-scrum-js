@@ -95,4 +95,4 @@ app.put("/api/seeks/:id",(req,res)=>{
 app.listen(port, () => console.log(`Server runningg on port 4000!`))
 app.listen(() => {
     console.log("");
-  })
+})
