@@ -32,15 +32,22 @@ export default class App extends Component {
   render() {
     return (
       <div className='container'>
-        <div className=''>
-          <h4 className='title'>Chess project</h4>
+
+      <h4 className='title'>PLAY CHESS</h4>
+      <div class="row">
+          <div class="col">
+            <MatchLista />
+          </div>
+          <div class="col-sm">
+
           <NewGame />
-          <MatchLista />
-          <GameBoard />
+          
+          </div>
+
+
+
         </div>
       </div>
     );
   }
 }
-
-

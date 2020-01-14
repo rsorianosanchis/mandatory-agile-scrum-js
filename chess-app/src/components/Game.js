@@ -61,29 +61,37 @@ class Game extends Component {
 
     return (
       <div className='media mt-3'>
-        <div className='media-body'>
-          <p className='card-text'>
-            <span>Match Owner:  {data.owner}</span>
-          </p>
 
-          <span>Spelares: {data.owner} -vs-  {data.owner === data.players.Black && data.players.White === '' ? 'Waiting Spelare' : data.players.White}
-            {data.owner === data.players.White && data.players.Black === '' ? 'Waiting Spelare' : data.players.Black} </span>
+        <table>
+          <tr>
+            <th scope="row">Match Owner</th>
+            <th>Color</th>
+            <th>Player 1</th>
+            <th>Player 2</th>
+            <th>status</th>
+          </tr>
+          <tbody>
+            <tr>
+              <td><span>{data.owner}</span></td>
+              <td>{data.owner === data.players.Black ? 'Black' : 'White'}</td>
+              <td><tr><span>{data.owner}</span></tr></td>
+              <td className="Awaiting-Player">  <span>
+                {data.players.Black === '' || data.players.White === '' ? 'Waiting Player' : data.owner === data.players.White ? 'White' : 'Black'}
+              </span></td>
 
+              <td>
+                {data.players.Black === '' || data.players.White === '' ? (
+                  <div className='btn btn-sm btn-warning' onClick={this.handleClick}>
+                    Acceptera Spel
+            </div>
+                ) : (
+                    <p>Spel in progress</p>
+                  )}
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-          {data.owner === data.players.Black && data.players.White === '' ? 'Waiting Spelare' : data.players.White}
-
-          {data.owner === data.players.White && data.players.Black === '' ? 'Waiting Spelare' : data.players.Black}
-
-          {data.players.Black === '' || data.players.White === '' ? 'Waiting Spelare' : data.owner === data.players.White ? 'white' : 'black'}
-
-          {data.players.Black === '' || data.players.White === '' ? (
-            <div className='btn btn-sm btn-warning' onClick={this.handleClick}>
-              Acceptera Spel
-          </div>
-          ) : (
-              <p>Spel in progress</p>
-            )}
-        </div>
       </div>
     )
   }

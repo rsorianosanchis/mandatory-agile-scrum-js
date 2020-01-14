@@ -1,30 +1,52 @@
+
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Chessboard from 'chessboardjsx';
 import Chess from 'chess.js';
 import axios from 'axios';
 import io from 'socket.io-client';
+import { useParams } from 'react-router-dom';
 
 class ChessImpl extends Component {
     static propTypes = { children: PropTypes.func };
-    state = {
-        fen: "start",
-        // square styles for active drop square
-        dropSquareStyle: {},
-        // custom square styles
-        squareStyles: {},
-        // square with the currently clicked piece
-        pieceSquare: "",
-        // currently clicked square
-        square: "",
-        // array of past game moves
-        history: []
-    };
+    constructor(props) {
+        super(props)
+        this.state = {
+            fen: "start",
+            // square styles for active drop square
+            dropSquareStyle: {},
+            // custom square styles
+            squareStyles: {},
+            // square with the currently clicked piece
+            pieceSquare: "",
+            // currently clicked square
+            square: "",
+            // array of past game moves
+            history: [],
 
-    componentDidMount() {
-        this.game = new Chess();
+            fenBoard: [],
+        };
+
     }
 
+    async componentDidMount() {
+        this.game = new Chess();
+        this.getGames()
+    }
+    getGames = async () => {
+        const gameId = "f9f83812-4a21-49bd-a74e-beffe8b8d282"
+        try {
+            const response = await axios.get(`http://localhost:4000/api/seeks/${gameId}`);
+            console.log(response.data);
+
+            this.setState({ fenBoard: response.data });
+            console.log(this.state.fenBoard);
+
+        } catch (error) {
+            console.error(error);
+        }
+    };
     // keep clicked square style and remove hint squares
     removeHighlightSquare = () => {
         this.setState(({ pieceSquare, history }) => ({
@@ -63,8 +85,6 @@ class ChessImpl extends Component {
 
 
     onDrop = ({ sourceSquare, targetSquare }) => {
-        // const { gameId } = useParams();
-        // console.log("gameId" + gameId);
 
         // see if the move is legal
         let move = this.game.move({
@@ -79,9 +99,20 @@ class ChessImpl extends Component {
             fen: this.game.fen(),
             history: this.game.history({ verbose: true }),
             squareStyles: squareStyling({ pieceSquare, history })
-        }));
-        const fen = this.game.fen();
- 
+        }))
+        this.state.fenBoard.chessmans = this.state.fen
+        const list = this.state.fenBoard;
+        console.log(list);
+
+        axios
+            .put(`http://localhost:4000/api/seeks/f9f83812-4a21-49bd-a74e-beffe8b8d282`, list)
+            .then(res => {
+
+            })
+            .catch(error => {
+                console.error(error);
+
+            });
 
     };
 
@@ -127,14 +158,14 @@ class ChessImpl extends Component {
 
         // illegal move
         console.log("move" + move);
-        
+
         if (move === null) return;
 
         this.setState({
             fen: this.game.fen(),
             history: this.game.history({ verbose: true }),
             pieceSquare: ""
-        });
+        })
     };
 
     onSquareRightClick = square =>
@@ -143,12 +174,12 @@ class ChessImpl extends Component {
         });
 
     render() {
-        const { fen, dropSquareStyle, squareStyles } = this.state;
-        console.log("fen" + fen, "dropSquareStyle" + dropSquareStyle, "squareStyles" + squareStyles);
+        const { fenBoard, fen, dropSquareStyle, squareStyles } = this.state;
+        console.log(fenBoard.chessmans);
 
         return this.props.children({
             squareStyles,
-            position: fen,
+            position: fenBoard.chessmans,
             onMouseOverSquare: this.onMouseOverSquare,
             onMouseOutSquare: this.onMouseOutSquare,
             onDrop: this.onDrop,
@@ -163,8 +194,11 @@ class ChessImpl extends Component {
 export default function ChessGame() {
 
     return (
+
+
         <div>
             <ChessImpl>
+
                 {({
                     position,
                     onDrop,
@@ -176,7 +210,9 @@ export default function ChessGame() {
                     onSquareClick,
                     onSquareRightClick
                 }) => (
+
                         <Chessboard
+
                             id="Chess"
                             width={320}
                             position={position}
