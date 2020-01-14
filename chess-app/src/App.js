@@ -11,7 +11,8 @@ let obj =  {
   },
   "chessmans": "rnbqkbnr/1ppppp1p/6p1/p7/7P/2PP4/PP2PPP1/RNBQKBNR b KQkq h3 0 3",
   "owner": "ibo",
-  "test": "rsc"
+  "test": "3",
+  "test3":"ssss"
 }
 
 let ss = {

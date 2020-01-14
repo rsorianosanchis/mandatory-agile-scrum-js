@@ -93,7 +93,7 @@ app.put("/api/seeks/:id",(req,res)=>{
         fs.writeFile('./lista.json',data,(err) => {
         if (err) throw err;
       })
-      res.status(200).send(result).end()
+      res.status(200).send(data).end()
     }else{
         console.log("the id was wrong and user is getting fel data response")
         res.status(400).send("there is no object for this id").end()
