@@ -1,1 +1,40 @@
-{"list":[{"id":"bb8a71d3-de60-4a9d-a6ce-8e2e278d5fff","players":{"Black":"uu","White":""},"chessmans":null,"owner":"uu"},{"id":"16a2472d-5752-40e1-b527-1b9998911d92","players":{"Black":"SSS","White":""},"chessmans":null,"owner":"SSS"},{"id":"19789f04-dcfd-4a45-84d8-c9fa4183450d","players":{"Black":"","White":"jj"},"chessmans":null,"owner":"jj"},{"id":"f53963c7-cd0d-4f5d-b4db-317e49193954","players":{"Black":"","White":"KKKK"},"chessmans":null,"owner":"KKKK"}]}
+{
+  "list": [
+    {
+      "id": "bb8a71d3-de60-4a9d-a6ce-8e2e278d5fff",
+      "players": {
+        "Black": "uu",
+        "White": ""
+      },
+      "chessmans": null,
+      "owner": "uu"
+    },
+    {
+      "id": "16a2472d-5752-40e1-b527-1b9998911d92",
+      "players": {
+        "Black": "SSS",
+        "White": ""
+      },
+      "chessmans": null,
+      "owner": "SSS"
+    },
+    {
+      "id": "19789f04-dcfd-4a45-84d8-c9fa4183450d",
+      "players": {
+        "Black": "",
+        "White": "jj"
+      },
+      "chessmans": null,
+      "owner": "jj"
+    },
+    {
+      "id": "f53963c7-cd0d-4f5d-b4db-317e49193954",
+      "players": {
+        "Black": "",
+        "White": "KKKK"
+      },
+      "chessmans": null,
+      "owner": "KKKK"
+    }
+  ]
+}

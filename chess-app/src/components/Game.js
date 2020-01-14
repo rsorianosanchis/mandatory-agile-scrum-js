@@ -14,7 +14,6 @@ const initialState = {
 };
 
 class Game extends Component {
-  state = { ...initialState };
 
   handleClick = (e) => {
     e.preventDefault();
@@ -25,36 +24,22 @@ class Game extends Component {
 
   getGameFromServer = async () => {
     try {
-      const response = await axios.get(`http://localhost:4000/api/game/${this.props.data.id}`);
-      console.log(response.data);
-
-
-      this.setState({ game: response.data });
-      let updateGame = { ...this.state.game }
-
-      //this.setState({ game.players.: response.data });
-
-      // Här ska jag göra prompt 
+      let updateGame = { ...this.props.data };
       const enteredName = prompt('Please enter your name');
-      //this.setState({ enteredName: enteredName })
-      if (this.state.game.players.Black === '') {
+
+      if (updateGame.players.Black === '') {
         updateGame.players.Black = enteredName;
       } else {
         updateGame.players.White = enteredName;
       }
-      // Här ska jag göra PUT
       axios({
         method: 'put',
-        url: 'http://localhost:4000/api/seeks',
+        url: `http://localhost:4000/api/seeks/${this.props.data.id}`,
         data: updateGame
       });
 
-
-      //reset
-      this.setState({ ...initialState });
       updateGame = { ...initialState }
 
-      console.log(this.state.game);
     } catch (error) {
       console.error(error);
     }
