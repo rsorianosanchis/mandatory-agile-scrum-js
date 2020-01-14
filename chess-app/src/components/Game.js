@@ -66,7 +66,15 @@ class Game extends Component {
             <span>Match Owner:  {data.owner}</span>
           </p>
 
-          <span>Spelares: {data.owner} -vs- {data.owner === data.players.Black && data.players.White === '' ? 'Waiting Spelare' : data.players.Black} </span>
+          <span>Spelares: {data.owner} -vs-  {data.owner === data.players.Black && data.players.White === '' ? 'Waiting Spelare' : data.players.White}
+            {data.owner === data.players.White && data.players.Black === '' ? 'Waiting Spelare' : data.players.Black} </span>
+
+
+          {data.owner === data.players.Black && data.players.White === '' ? 'Waiting Spelare' : data.players.White}
+
+          {data.owner === data.players.White && data.players.Black === '' ? 'Waiting Spelare' : data.players.Black}
+
+          {data.players.Black === '' || data.players.White === '' ? 'Waiting Spelare' : data.owner === data.players.White ? 'white' : 'black'}
 
           {data.players.Black === '' || data.players.White === '' ? (
             <div className='btn btn-sm btn-warning' onClick={this.handleClick}>
