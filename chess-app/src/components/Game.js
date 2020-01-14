@@ -32,11 +32,22 @@ class Game extends Component {
       } else {
         updateGame.players.White = enteredName;
       }
-      axios({
-        method: 'put',
-        url: `http://localhost:4000/api/seeks/${this.props.data.id}`,
-        data: updateGame
-      });
+      console.log(updateGame);
+
+      // axios({
+      //   method: 'put',
+      //   url: `http://localhost:4000/api/seeks/${this.props.data.id}`,
+      //   data: updateGame
+      // });
+      async function makePostRequest() {
+
+
+        let res = await axios.put(`http://localhost:4000/api/seeks/${updateGame.id}`, updateGame);
+
+        console.log(res.data);
+      }
+
+      makePostRequest();
 
       updateGame = { ...initialState }
 
@@ -55,7 +66,7 @@ class Game extends Component {
             <span>Match Owner:  {data.owner}</span>
           </p>
 
-          <span>Spelares: {data.owner} -vs- {data.owner !== data.players.Black & data.players.White !== '' ? data.players.Black : 'Waiting Spelare'} </span>
+          <span>Spelares: {data.owner} -vs- {data.owner === data.players.Black && data.players.White === '' ? 'Waiting Spelare' : data.players.Black} </span>
 
           {data.players.Black === '' || data.players.White === '' ? (
             <div className='btn btn-sm btn-warning' onClick={this.handleClick}>
