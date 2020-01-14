@@ -61,9 +61,6 @@ class NewGame extends Component {
       data: nyGame
     });
 
-    // här vi gör reset i förmulär
-    console.log('RESET');
-
     this.setState({ ...initialState });
     nyGame = { ...initialState };
 

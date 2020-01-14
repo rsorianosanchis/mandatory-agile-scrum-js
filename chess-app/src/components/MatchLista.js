@@ -10,15 +10,11 @@ class MatchLista extends Component {
     this.getGames();
   }
 
-
-
   getGames = async () => {
     try {
       const response = await axios.get('http://localhost:4000/api/seeks');
-      console.log(response.data);
 
       this.setState({ allGames: response.data });
-      //console.log(this.state.allGames);
 
       localStorage.setItem('games', JSON.stringify(this.state.allGames));
     } catch (error) {
@@ -31,7 +27,7 @@ class MatchLista extends Component {
 
       <Fragment>
         {this.state.allGames.map(game => {
-          // console.log(game);
+          console.log(game);
 
           return <Game key={game.id} data={game} />;
         })}
