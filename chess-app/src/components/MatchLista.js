@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import Game from './Game';
+import '../style.css'
 const axios = require('axios');
+
 // let obj = {
 //   "id": 1332,
 //   "players": {
@@ -43,6 +45,7 @@ class MatchLista extends Component {
 
   render() {
     return (
+
 
       <Fragment>
         {this.state.allGames.map(game => {

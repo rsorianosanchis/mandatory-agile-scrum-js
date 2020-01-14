@@ -58,17 +58,17 @@ class NewGame extends Component {
     const { error } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
-        <h5>Create new game</h5>
+        <h5>CREATE NEW GAME</h5>
         {error ? (
-          <div className='alert alert-danger mt-1 mb-1'>Form incomplet !</div>
+          <div className='alert alert-danger mt-1 mb-1'>Form incomplete !</div>
         ) : null}
-        <div className='form-group row'>
-          <label className='.label'>Spelare 1</label>
+        <div>
+          <label className='label'></label>
           <div className=''>
             <input
               type='text'
-              className='form-control'
-              placeholder='Namn Spelare 1'
+              className='input-name'
+              placeholder='PLAYER NAME'
               name='spelare1'
               value={this.state.game.spelare1}
               onChange={this.handleChange}
@@ -76,26 +76,27 @@ class NewGame extends Component {
           </div>
         </div>
         {/*----------------*/}
-        <div className='form-group row'>
-          <label className=''>Spelare 1 Color</label>
+        <div className='form-check form-check-inline'>
+          <label className=''></label>
           <div className=''>
             <input
               type='radio'
-              className='form-control'
+              className='form-check-input'
               name='spelare1Color'
               value='white'
               onChange={this.handleChange}
             />
-            White
+            <label class="form-check-label" for="inlineRadio1">WHITE</label>
             <br />
             <input
               type='radio'
-              className='form-control'
+              className='form-check-input'
               name='spelare1Color'
               value='black'
               onChange={this.handleChange}
             />
-            Black
+            <label class="form-check-label" for="inlineRadio1">BLACK</label>
+
             <br />
           </div>
         </div>
