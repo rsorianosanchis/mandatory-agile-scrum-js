@@ -103,6 +103,7 @@ taskyyyymmddhh***
 - [task20200102007](../../issues/7) => Philip
 - [task20200102013](../../issues/13) => Hesham
 - [task20191220001](../../issues/1) => Ibrahim
+- [task20200114018](../../issues/18) => Ibrahim
 - [task20200113015](../../issues/15) => Ricardo
 
 [Gå up](#Innehållsförteckning).
