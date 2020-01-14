@@ -30,11 +30,20 @@
     {
       "id": "f53963c7-cd0d-4f5d-b4db-317e49193954",
       "players": {
-        "Black": "",
+        "Black": "lLL",
         "White": "KKKK"
       },
       "chessmans": null,
       "owner": "KKKK"
+    },
+    {
+      "id": "12ab27bf-446a-4647-a850-2e79ba9def8f",
+      "players": {
+        "Black": "GGG",
+        "White": "UUU"
+      },
+      "chessmans": null,
+      "owner": "UUU"
     }
   ]
 }
