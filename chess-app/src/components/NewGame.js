@@ -1,57 +1,70 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
+const axios = require('axios');
 
 const initialState = {
   game: {
     id: '',
-    // allMoves: [],
-    spelare1: '',
-    spelare2: null,
-    spelare1Color: '',
-    spelare2Color: null,
-    turnToMove: 'white',
-    owner: ''
+    players: {
+      Black: "",
+      White: ""
+    },
+    chessmans: null,
+    owner: "",
   },
-  error: false
+  error: false,
+  color: ''
 };
 
 class NewGame extends Component {
   state = { ...initialState };
 
   handleChange = e => {
-    this.setState({
-      game: { ...this.state.game, [e.target.name]: e.target.value }
-    });
+    console.log(e.target.value);
+    console.log(e.target.name);
+    if (e.target.name === 'owner') {
+      this.setState({
+        game: { ...this.state.game, owner: e.target.value }
+      });
+    } else if (e.target.name === 'radiocolor') {
+      this.setState({
+        game: { ...this.state.game }
+      });
+
+      this.setState(
+        { color: e.target.value }
+      );
+    };
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    //här vi tar värde som behöver att skapa en ny spel
-    const { spelare1, spelare1Color } = this.state.game;
-    //validation att förmulär är fullt
-    if (spelare1 === '' || spelare1Color === '') {
-      this.setState({ error: true });
-      //if error stops
-      return;
-    }
-    const nyGame = { ...this.state.game };
-    // man skapar här ett id med uuid library (pending att ta bort om det gör i backend)
+
+    let nyGame = { ...this.state.game };
     nyGame.id = uuid('uuid/v4');
-    if (nyGame.spelare1Color === 'white') {
-      nyGame.spelare2Color = 'black';
+    if (this.state.color === 'black') {
+      nyGame.players.Black = nyGame.owner;
+      nyGame.players.White = '';
+
     } else {
-      nyGame.spelare2Color = 'white';
+      nyGame.players.White = nyGame.owner;
+      nyGame.players.Black = '';
+
     }
-    nyGame.owner = nyGame.spelare1;
-    const axios = require('axios');
+    console.log(nyGame);
+
+
+
     axios({
       method: 'post',
       url: 'http://localhost:4000/api/seeks',
       data: nyGame
     });
 
-    // här vi gör reset i förmulär
     this.setState({ ...initialState });
+    nyGame = { ...initialState };
+
+
   };
 
   render() {
@@ -69,8 +82,8 @@ class NewGame extends Component {
               type='text'
               className='input-name'
               placeholder='PLAYER NAME'
-              name='spelare1'
-              value={this.state.game.spelare1}
+              name='owner'
+              value={this.state.game.owner}
               onChange={this.handleChange}
             />
           </div>
@@ -82,7 +95,7 @@ class NewGame extends Component {
             <input
               type='radio'
               className='form-check-input'
-              name='spelare1Color'
+              name='radiocolor'
               value='white'
               onChange={this.handleChange}
             />
@@ -91,7 +104,7 @@ class NewGame extends Component {
             <input
               type='radio'
               className='form-check-input'
-              name='spelare1Color'
+              name='radiocolor'
               value='black'
               onChange={this.handleChange}
             />
