@@ -39,9 +39,10 @@ export default class App extends Component {
             <MatchLista />
           </div>
           <div class="col-sm">
-
           <NewGame />
-          
+          </div>
+          <div>
+           <GameBoard />
           </div>
 
 
