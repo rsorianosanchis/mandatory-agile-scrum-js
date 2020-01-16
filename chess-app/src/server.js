@@ -100,6 +100,28 @@ app.put("/api/seeks/:id", (req, res) => {
     }
 })
 
+app.get("/api/seeeks/:name", (req,res)=>{
+    let name = req
+})
+
+app.get("/api/seeks/:id", function (req, res) {
+    const id = req.params.id;
+  console.log("id   " + id);
+  
+    if (!id) {
+      res.status(400).end();
+      return;
+    }
+    let game = matchlista.list.find(el => el.id == id);
+    console.log(game);
+    
+    if (game) {
+      res.json(game);
+    } else {
+      res.status(404).end();
+    }
+  })
+
 app.listen(port, () => console.log(`Server runningg on port 4000!`))
 app.listen(() => {
     console.log("");
