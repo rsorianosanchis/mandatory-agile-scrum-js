@@ -34,11 +34,7 @@ class Game extends Component {
       }
       console.log(updateGame);
 
-      // axios({
-      //   method: 'put',
-      //   url: `http://localhost:4000/api/seeks/${this.props.data.id}`,
-      //   data: updateGame
-      // });
+
       async function makePostRequest() {
 
 
@@ -76,7 +72,7 @@ class Game extends Component {
               <td>{data.owner === data.players.Black ? 'Black' : 'White'}</td>
               <td><tr><span>{data.owner}</span></tr></td>
               <td className="Awaiting-Player">  <span>
-                {data.players.Black === '' || data.players.White === '' ? 'Waiting Player' : data.owner === data.players.White ? 'White' : 'Black'}
+                {data.players.Black === '' || data.players.White === '' ? 'Waiting Player' : data.owner === data.players.White ? data.players.Black : data.players.White}
               </span></td>
 
               <td>
