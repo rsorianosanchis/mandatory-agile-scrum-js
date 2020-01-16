@@ -17,11 +17,18 @@ const initialState = {
 class Game extends Component {
   state = {
     finished: false,
+    viewSpel: false
   }
   handleClick = (e) => {
     e.preventDefault();
     console.log('click for play');
     this.getGameFromServer();
+
+  };
+
+  handleClickView = (e) => {
+    e.preventDefault();
+    this.setState({ viewSpel: true })
 
   };
 
@@ -65,6 +72,9 @@ class Game extends Component {
     if (this.state.finished) {
       return <Redirect to={"/" + data.id} />
     }
+    if (this.state.viewSpel) {
+      return <Redirect to={"/" + data.id} />
+    }
     return (
 
       <div className='media mt-3'>
@@ -92,8 +102,8 @@ class Game extends Component {
                   <div className='btn btn-sm btn-warning' onClick={this.handleClick}>
                     Acceptera Spel
             </div>
-                ) : (
-                    <p>Spel in progress</p>
+                ) : (<div className='btn btn-sm btn-warning' onClick={this.handleClickView}>View spel in progress</div>
+
                   )}
               </td>
             </tr>
