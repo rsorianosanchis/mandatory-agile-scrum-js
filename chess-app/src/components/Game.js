@@ -17,11 +17,18 @@ const initialState = {
 class Game extends Component {
   state = {
     finished: false,
+    viewSpel: false
   }
   handleClick = (e) => {
     e.preventDefault();
     console.log('click for play');
     this.getGameFromServer();
+
+  };
+
+  handleClickView = (e) => {
+    e.preventDefault();
+    this.setState({ viewSpel: true })
 
   };
 
@@ -37,11 +44,7 @@ class Game extends Component {
       }
       console.log(updateGame);
 
-      // axios({
-      //   method: 'put',
-      //   url: `http://localhost:4000/api/seeks/${this.props.data.id}`,
-      //   data: updateGame
-      // });
+
       async function makePostRequest() {
 
 
@@ -65,8 +68,11 @@ class Game extends Component {
     const { data } = this.props;
     console.log(data);
     console.log(data.id);
-    
+
     if (this.state.finished) {
+      return <Redirect to={"/" + data.id} />
+    }
+    if (this.state.viewSpel) {
       return <Redirect to={"/" + data.id} />
     }
     return (
@@ -86,17 +92,18 @@ class Game extends Component {
               <td><span>{data.owner}</span></td>
               <td>{data.owner === data.players.Black ? 'Black' : 'White'}</td>
               <td>{data.owner}</td>
-              <td className="Awaiting-Player">  <span>
-                {data.players.Black === '' || data.players.White === '' ? 'Waiting Player' : data.owner === data.players.White ? 'White' : 'Black'}
-              </span></td>
+              <td className="Awaiting-Player">
+                <span>
+                  {data.players.Black === '' || data.players.White === '' ? 'Waiting Player' : data.owner === data.players.White ? data.players.Black : data.players.White}
+                </span></td>
 
               <td>
                 {data.players.Black === '' || data.players.White === '' ? (
                   <div className='btn btn-sm btn-warning' onClick={this.handleClick}>
                     Acceptera Spel
             </div>
-                ) : (
-                    <p>Spel in progress</p>
+                ) : (<div className='btn btn-sm btn-warning' onClick={this.handleClickView}>View spel in progress</div>
+
                   )}
               </td>
             </tr>
@@ -104,7 +111,6 @@ class Game extends Component {
         </table>
 
       </div>
-
     )
   }
 }
