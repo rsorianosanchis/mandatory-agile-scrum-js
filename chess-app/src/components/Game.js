@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 const axios = require('axios');
 
 const initialState = {
@@ -8,13 +9,15 @@ const initialState = {
       Black: "",
       White: ""
     },
-    chessmans: null,
+    chessmans: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
     owner: "",
   }
 };
 
 class Game extends Component {
-
+  state = {
+    finished: false,
+  }
   handleClick = (e) => {
     e.preventDefault();
     console.log('click for play');
@@ -46,6 +49,8 @@ class Game extends Component {
       makePostRequest();
 
       updateGame = { ...initialState }
+      this.setState({ finished: true })
+
 
     } catch (error) {
       console.error(error);
@@ -54,8 +59,14 @@ class Game extends Component {
 
   render() {
     const { data } = this.props;
+    console.log(data);
+    console.log(data.id);
 
+    if (this.state.finished) {
+      return <Redirect to={"/" + data.id} />
+    }
     return (
+
       <div className='media mt-3'>
 
         <table>
@@ -70,10 +81,11 @@ class Game extends Component {
             <tr>
               <td><span>{data.owner}</span></td>
               <td>{data.owner === data.players.Black ? 'Black' : 'White'}</td>
-              <td><tr><span>{data.owner}</span></tr></td>
-              <td className="Awaiting-Player">  <span>
-                {data.players.Black === '' || data.players.White === '' ? 'Waiting Player' : data.owner === data.players.White ? data.players.Black : data.players.White}
-              </span></td>
+              <td>{data.owner}</td>
+              <td className="Awaiting-Player">
+                <span>
+                  {data.players.Black === '' || data.players.White === '' ? 'Waiting Player' : data.owner === data.players.White ? data.players.Black : data.players.White}
+                </span></td>
 
               <td>
                 {data.players.Black === '' || data.players.White === '' ? (

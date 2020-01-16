@@ -9,7 +9,7 @@ const initialState = {
       Black: "",
       White: ""
     },
-    chessmans: null,
+    chessmans: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
     owner: "",
   },
   error: false,
@@ -59,12 +59,15 @@ class NewGame extends Component {
       method: 'post',
       url: 'http://localhost:4000/api/seeks',
       data: nyGame
-    });
+    })
+    .then((x)=>{
+      window.location.reload();
+    })
 
     this.setState({ ...initialState });
     nyGame = { ...initialState };
 
-
+      
   };
 
   render() {

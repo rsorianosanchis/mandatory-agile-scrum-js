@@ -26,18 +26,22 @@ class ChessImpl extends Component {
             history: [],
 
             fenBoard: [],
+            gameId: ""
         };
 
     }
 
     async componentDidMount() {
+
+        var { id } = window.location.pathname.replace(/[!@#/$%^&*]/g, "");
+        this.setState({ gameId: id })
         this.game = new Chess();
         this.getGames()
     }
     getGames = async () => {
-        const gameId = "f9f83812-4a21-49bd-a74e-beffe8b8d282"
+
         try {
-            const response = await axios.get(`http://localhost:4000/api/seeks/${gameId}`);
+            const response = await axios.get(`http://localhost:4000/api/seeks/${this.state.gameId}`);
             console.log(response.data);
 
             this.setState({ fenBoard: response.data });
@@ -102,10 +106,11 @@ class ChessImpl extends Component {
         }))
         this.state.fenBoard.chessmans = this.state.fen
         const list = this.state.fenBoard;
-        console.log(list);
+        console.log(this.state.fen);
+
 
         axios
-            .put(`http://localhost:4000/api/seeks/f9f83812-4a21-49bd-a74e-beffe8b8d282`, list)
+            .put(`http://localhost:4000/api/seeks/${this.state.gameId}`, list)
             .then(res => {
 
             })
@@ -179,7 +184,7 @@ class ChessImpl extends Component {
 
         return this.props.children({
             squareStyles,
-            position: fenBoard.chessmans,
+            position: fen,
             onMouseOverSquare: this.onMouseOverSquare,
             onMouseOutSquare: this.onMouseOutSquare,
             onDrop: this.onDrop,
@@ -214,7 +219,7 @@ export default function ChessGame() {
                         <Chessboard
 
                             id="Chess"
-                            width={320}
+                            width={630}
                             position={position}
                             onDrop={onDrop}
                             onMouseOverSquare={onMouseOverSquare}
