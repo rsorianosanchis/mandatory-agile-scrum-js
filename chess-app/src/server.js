@@ -75,6 +75,9 @@ app.put("/api/seeks/:id", (req, res) => {
     let arr = matchlista.list
     let obj = req.body
     let id = req.params.id
+    console.log("obj");
+    console.log(obj);
+    
     console.log("user is updateing a match med id " + id)
     function hitta(n) {
         return n.id === id
@@ -113,6 +116,7 @@ app.get("/api/seeks/:id", function (req, res) {
       return;
     }
     let game = matchlista.list.find(el => el.id == id);
+    console.log("game");
     console.log(game);
     
     if (game) {

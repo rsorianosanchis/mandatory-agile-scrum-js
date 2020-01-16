@@ -18,7 +18,6 @@ class MatchLista extends Component {
 
       this.setState({ allGames: response.data });
 
-      localStorage.setItem('games', JSON.stringify(this.state.allGames));
     } catch (error) {
       console.error(error);
     }

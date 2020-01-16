@@ -9,7 +9,7 @@ const initialState = {
       Black: "",
       White: ""
     },
-    chessmans: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    chessmans: null,
     owner: "",
   }
 };

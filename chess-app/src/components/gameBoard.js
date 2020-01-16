@@ -33,7 +33,9 @@ class ChessImpl extends Component {
 
     async componentDidMount() {
 
-        var { id } = window.location.pathname.replace(/[!@#/$%^&*]/g, "");
+        var id = window.location.pathname.replace(/[!@#/$%^&*]/g, "");
+        console.log(id);
+        
         this.setState({ gameId: id })
         this.game = new Chess();
         this.getGames()
@@ -41,10 +43,10 @@ class ChessImpl extends Component {
     getGames = async () => {
 
         try {
-            const response = await axios.get(`http://localhost:4000/api/seeks/${this.state.gameId}`);
-            console.log(response.data);
+            const response = await axios.get(`http://localhost:4000/api/seeks/` + this.state.gameId);
+            console.log( response.data[0]);
 
-            this.setState({ fenBoard: response.data });
+            this.setState({ fenBoard: response.data[0] });
             console.log(this.state.fenBoard);
 
         } catch (error) {
@@ -104,13 +106,30 @@ class ChessImpl extends Component {
             history: this.game.history({ verbose: true }),
             squareStyles: squareStyling({ pieceSquare, history })
         }))
-        this.state.fenBoard.chessmans = this.state.fen
+        
+        const test1 = this.game.fen()
+        this.setState({newMoveChessmans: test1})
+     
+     
+        this.setState(state => {
+            state.fenBoard.chessmans = state.fen
+            return state
+          })
+
         const list = this.state.fenBoard;
+
+        console.log("State fen");
         console.log(this.state.fen);
+        console.log("State gameId");
+        console.log(this.state.gameId);
+        console.log("NewMoveChessMans");
+        console.log(this.state.newMoveChessmans);
+        console.log("list");
+        console.log(list);
 
 
         axios
-            .put(`http://localhost:4000/api/seeks/${this.state.gameId}`, list)
+            .put(`http://localhost:4000/api/seeks/` + this.state.gameId , list)
             .then(res => {
 
             })
@@ -118,7 +137,6 @@ class ChessImpl extends Component {
                 console.error(error);
 
             });
-
     };
 
     onMouseOverSquare = square => {
