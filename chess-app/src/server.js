@@ -100,7 +100,7 @@ app.put("/api/seeks/:id", (req, res) => {
     }
 })
 
-app.get("/api/seeks/:name", (req, res) => {
+app.get("/api/seeeks/:name", (req, res) => {
     let name = req
 })
 
