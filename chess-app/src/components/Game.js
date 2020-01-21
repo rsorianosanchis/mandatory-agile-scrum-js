@@ -80,6 +80,7 @@ class Game extends Component {
       <div className='media mt-3'>
 
         <table>
+          <thead>
           <tr>
             <th scope="row">Match Owner</th>
             <th>Color</th>
@@ -87,6 +88,7 @@ class Game extends Component {
             <th>Player 2</th>
             <th>status</th>
           </tr>
+          </thead>
           <tbody>
             <tr>
               <td><span>{data.owner}</span></td>

@@ -1,13 +1,8 @@
-
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Chessboard from 'chessboardjsx';
 import Chess from 'chess.js';
 import axios from 'axios';
-import io from 'socket.io-client';
-import { useParams } from 'react-router-dom';
-
 class ChessImpl extends Component {
     static propTypes = { children: PropTypes.func };
     constructor(props) {
@@ -29,26 +24,40 @@ class ChessImpl extends Component {
             gameId: ""
         };
 
+        this.game = new Chess();
+
     }
 
     async componentDidMount() {
-
-        var id = window.location.pathname.replace(/[!@#/$%^&*]/g, "");
-        console.log(id);
-        
-        this.setState({ gameId: id })
-        this.game = new Chess();
         this.getGames()
     }
+
     getGames = async () => {
+        const id = window.location.pathname.replace(/[!@#/$%^&*]/g, "");
+        this.setState({ gameId: id })
 
         try {
-            const response = await axios.get(`http://localhost:4000/api/seeks/` + this.state.gameId);
-            console.log( response.data[0]);
+            const response = await axios.get(`http://localhost:4000/api/seeks/${id}`);
+            console.log(response.data.chessmans);
+            this.setState({ fenBoard: response.data });
+            if (response.data.chessmans === null) {
+                return
+            } else {
+                const result = this.game.load(response.data.chessmans)
+                if (result) {
+                    console.log("success");
+                    console.log(this.game.fen());
+                    this.setState(({ history, pieceSquare }) => ({
+                        fen: this.game.fen(),
+                        history: this.game.history({ verbose: true }),
+                        squareStyles: squareStyling({ pieceSquare, history })
+                    }))
 
-            this.setState({ fenBoard: response.data[0] });
-            console.log(this.state.fenBoard);
+                } else {
+                    console.log("fail");
 
+                }
+            }
         } catch (error) {
             console.error(error);
         }
@@ -106,39 +115,35 @@ class ChessImpl extends Component {
             history: this.game.history({ verbose: true }),
             squareStyles: squareStyling({ pieceSquare, history })
         }))
-        
-        const test1 = this.game.fen()
-        this.setState({newMoveChessmans: test1})
-     
-     
+
+        this.makeMove()
+    };
+
+
+    makeMove = () => {
+
         this.setState(state => {
             state.fenBoard.chessmans = state.fen
             return state
-          })
+        })
 
         const list = this.state.fenBoard;
 
-        console.log("State fen");
-        console.log(this.state.fen);
-        console.log("State gameId");
-        console.log(this.state.gameId);
-        console.log("NewMoveChessMans");
-        console.log(this.state.newMoveChessmans);
-        console.log("list");
-        console.log(list);
-
-
         axios
-            .put(`http://localhost:4000/api/seeks/` + this.state.gameId , list)
+            .put(`http://localhost:4000/api/seeks/${this.state.gameId}`, list)
             .then(res => {
+                console.log(res.data);
+                console.log(this.game.turn());
+                console.log(this.game.history());
+                console.log(this.state.history);
+
 
             })
             .catch(error => {
                 console.error(error);
 
             });
-    };
-
+    }
     onMouseOverSquare = square => {
         // get list of possible moves for this square
         let moves = this.game.moves({
@@ -197,8 +202,7 @@ class ChessImpl extends Component {
         });
 
     render() {
-        const { fenBoard, fen, dropSquareStyle, squareStyles } = this.state;
-        console.log(fenBoard.chessmans);
+        const {fen, dropSquareStyle, squareStyles } = this.state;
 
         return this.props.children({
             squareStyles,
@@ -214,12 +218,13 @@ class ChessImpl extends Component {
     }
 }
 
-export default function ChessGame() {
+export default function ChessGame(props) {
 
     return (
 
 
         <div>
+             <div>test </div>
             <ChessImpl>
 
                 {({
@@ -252,7 +257,9 @@ export default function ChessGame() {
                             onSquareClick={onSquareClick}
                             onSquareRightClick={onSquareRightClick}
                         />
+
                     )}
+
             </ChessImpl>
         </div>
     );

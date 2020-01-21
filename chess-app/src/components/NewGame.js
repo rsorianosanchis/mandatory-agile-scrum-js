@@ -10,10 +10,11 @@ const initialState = {
       White: ""
     },
     chessmans: null,
-    owner: "",
+    owner: ""
   },
   error: false,
-  color: ''
+  color: '',
+
 };
 
 class NewGame extends Component {
@@ -102,7 +103,7 @@ class NewGame extends Component {
               value='white'
               onChange={this.handleChange}
             />
-            <label class="form-check-label" for="inlineRadio1">WHITE</label>
+            <label className="form-check-label" for="inlineRadio1">WHITE</label>
             <br />
             <input
               type='radio'
@@ -111,7 +112,7 @@ class NewGame extends Component {
               value='black'
               onChange={this.handleChange}
             />
-            <label class="form-check-label" for="inlineRadio1">BLACK</label>
+            <label className="form-check-label" for="inlineRadio1">BLACK</label>
 
             <br />
           </div>

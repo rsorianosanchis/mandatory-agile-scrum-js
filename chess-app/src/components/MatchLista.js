@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Game from './Game';
 import NewGame from './NewGame';
 import '../style.css'

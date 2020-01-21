@@ -102,10 +102,7 @@ app.put("/api/seeks/:id", (req, res) => {
         res.status(400).send("there is no object for this id").end()
     }
 })
-
-app.get("/api/seeeks/:name", (req, res) => {
-    let name = req
-})
+ 
 
 app.get("/api/seeks/:id", function (req, res) {
     const id = req.params.id;
@@ -118,7 +115,6 @@ app.get("/api/seeks/:id", function (req, res) {
     let game = matchlista.list.find(el => el.id == id);
     console.log("game");
     console.log(game);
-
     if (game) {
         res.json(game);
     } else {
