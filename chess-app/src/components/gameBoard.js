@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Chessboard from 'chessboardjsx';
 import Chess from 'chess.js';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 class ChessImpl extends Component {
     static propTypes = { children: PropTypes.func };
     constructor(props) {
@@ -38,7 +39,7 @@ class ChessImpl extends Component {
 
         try {
             const response = await axios.get(`http://localhost:4000/api/seeks/${id}`);
-            console.log(response.data.chessmans);
+            console.log(response.data);
             this.setState({ fenBoard: response.data });
             if (response.data.chessmans === null) {
                 return
@@ -202,7 +203,7 @@ class ChessImpl extends Component {
         });
 
     render() {
-        const {fen, dropSquareStyle, squareStyles } = this.state;
+        const { fen, dropSquareStyle, squareStyles } = this.state;
 
         return this.props.children({
             squareStyles,
@@ -221,47 +222,63 @@ class ChessImpl extends Component {
 export default function ChessGame(props) {
 
     return (
+        <>
+            <header
+            style={{
+                "backgroundColor": "#cddc3954",
+                "height": 100,
+                "display": "flex",
+                "justifyContent": "center",
+                "alignItems": "center"
 
+            }}
+            >
+                <Link 
+                style={{
+                 "fontSize": 20,
+                 "color": "black"}} 
+                 to={"/"}> <i class="far fa-arrow-alt-circle-left"></i>  LOBBY </Link>
+            </header>
+            <div style={{ margin: 50 }}>
 
-        <div>
-             <div>test </div>
-            <ChessImpl>
+                <ChessImpl>
 
-                {({
-                    position,
-                    onDrop,
-                    onMouseOverSquare,
-                    onMouseOutSquare,
-                    squareStyles,
-                    dropSquareStyle,
-                    onDragOverSquare,
-                    onSquareClick,
-                    onSquareRightClick
-                }) => (
+                    {({
+                        position,
+                        onDrop,
+                        onMouseOverSquare,
+                        onMouseOutSquare,
+                        squareStyles,
+                        dropSquareStyle,
+                        onDragOverSquare,
+                        onSquareClick,
+                        onSquareRightClick
+                    }) => (
 
-                        <Chessboard
+                            <Chessboard
 
-                            id="Chess"
-                            width={630}
-                            position={position}
-                            onDrop={onDrop}
-                            onMouseOverSquare={onMouseOverSquare}
-                            onMouseOutSquare={onMouseOutSquare}
-                            boardStyle={{
-                                borderRadius: "5px",
-                                boxShadow: `0 5px 15px rgba(0, 0, 0, 0.5)`
-                            }}
-                            squareStyles={squareStyles}
-                            dropSquareStyle={dropSquareStyle}
-                            onDragOverSquare={onDragOverSquare}
-                            onSquareClick={onSquareClick}
-                            onSquareRightClick={onSquareRightClick}
-                        />
+                                id="Chess"
+                                width={630}
+                                position={position}
+                                onDrop={onDrop}
+                                onMouseOverSquare={onMouseOverSquare}
+                                onMouseOutSquare={onMouseOutSquare}
+                                boardStyle={{
+                                    borderRadius: "5px",
+                                    boxShadow: `0 5px 15px rgba(0, 0, 0, 0.5)`
+                                }}
+                                squareStyles={squareStyles}
+                                dropSquareStyle={dropSquareStyle}
+                                onDragOverSquare={onDragOverSquare}
+                                onSquareClick={onSquareClick}
+                                onSquareRightClick={onSquareRightClick}
+                            />
 
-                    )}
+                        )}
 
-            </ChessImpl>
-        </div>
+                </ChessImpl>
+            </div>
+        </>
     );
 }
 
