@@ -4,7 +4,7 @@ import Chessboard from 'chessboardjsx';
 import Chess from 'chess.js';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
-class ChessImpl extends Component {
+export default class ChessImpl extends Component {
     static propTypes = { children: PropTypes.func };
     constructor(props) {
         super(props)
@@ -22,9 +22,9 @@ class ChessImpl extends Component {
             history: [],
 
             fenBoard: [],
-            gameId: ""
+            gameId: "",
         };
-
+        this.resetGame = this.resetGame.bind(this)
         this.game = new Chess();
 
     }
@@ -145,6 +145,30 @@ class ChessImpl extends Component {
 
             });
     }
+resetGame = (e) => {
+        this.game.reset();
+
+        this.setState(state => {
+            state.fen = "start"
+            return state
+        })
+        this.setState(state => {
+            state.fenBoard.chessmans = null
+            return state
+        })
+
+        const list = this.state.fenBoard;
+
+        axios.put(`http://localhost:4000/api/seeks/${this.state.gameId}`, list)
+          .then((response) => {
+          // console.log(response);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+
+
     onMouseOverSquare = square => {
         // get list of possible moves for this square
         let moves = this.game.moves({
@@ -203,82 +227,109 @@ class ChessImpl extends Component {
         });
 
     render() {
-        const { fen, dropSquareStyle, squareStyles } = this.state;
+        const { fen, dropSquareStyle, squareStyles, history } = this.state;
 
-        return this.props.children({
-            squareStyles,
-            position: fen,
-            onMouseOverSquare: this.onMouseOverSquare,
-            onMouseOutSquare: this.onMouseOutSquare,
-            onDrop: this.onDrop,
-            dropSquareStyle,
-            onDragOverSquare: this.onDragOverSquare,
-            onSquareClick: this.onSquareClick,
-            onSquareRightClick: this.onSquareRightClick
-        });
+
+        return (
+            <>
+                <header
+                    style={{
+                        "backgroundColor": "#cddc3954",
+                        "height": 100,
+                        "display": "flex",
+                        "justifyContent": "center",
+                        "alignItems": "center",
+                        "marginBottom": 30
+
+                    }}
+                >
+                    <Link
+                        style={{
+                            "fontSize": 20,
+                            "color": "black"
+                        }}
+                        to={"/"}> <i className="far fa-arrow-alt-circle-left"></i>  LOBBY </Link>
+                         <button onClick={this.resetGame}>Restart</button>
+                </header>
+                
+                <div style={{
+                    "display": "flex",
+                    "justifyContent": "space-around"
+                }}>
+                    <Chessboard
+
+                        id="Chess"
+                        width={430}
+                        position={fen}
+                        onDrop={this.onDrop}
+                        onMouseOverSquare={this.onMouseOverSquare}
+                        onMouseOutSquare={this.onMouseOutSquare}
+                        boardStyle={{
+                            borderRadius: "5px",
+                            boxShadow: `0 5px 15px rgba(0, 0, 0, 0.5)`
+                        }}
+                        squareStyles={squareStyles}
+                        dropSquareStyle={dropSquareStyle}
+                        onDragOverSquare={this.onDragOverSquare}
+                        onSquareClick={this.onSquareClick}
+                        onSquareRightClick={this.onSquareRightClick}
+                    />
+                    <ChessHistory moveHistory={this.state.history} />
+                </div>
+            </>
+        )
     }
 }
 
-export default function ChessGame(props) {
+
+function ChessHistory(props) {
+    const moveHistory = props.moveHistory.map((move) => {
+        if (move.color === 'w') {
+            return (
+                <div style={{
+                    "display": "flex",
+                    "justifyContent":"space-around",
+                    "fontWeight": "bold"
+                }} >
+                    <span>White:</span>
+                    <span>{move.from}</span>
+                    <span>{move.to}</span>
+                </div>
+            );
+        }
+        if (move.color === 'b') {
+            return (
+                <div style={{
+                    "display": "flex",
+                    "justifyContent":"space-around"
+                }} >
+                    <span>Black:</span>
+                    <span>{move.from}</span>
+                    <span>{move.to}</span>
+                </div>
+
+            );
+        }
+    });
+
 
     return (
-        <>
-            <header
-            style={{
-                "backgroundColor": "#cddc3954",
-                "height": 100,
+        <div style={{
+            "backgroundColor": "#2196f394",
+            "width": "30%",
+            "padding": "21"
+
+        }}>
+            <div style={{
                 "display": "flex",
-                "justifyContent": "center",
-                "alignItems": "center"
-
-            }}
-            >
-                <Link 
-                style={{
-                 "fontSize": 20,
-                 "color": "black"}} 
-                 to={"/"}> <i class="far fa-arrow-alt-circle-left"></i>  LOBBY </Link>
-            </header>
-            <div style={{ margin: 50 }}>
-
-                <ChessImpl>
-
-                    {({
-                        position,
-                        onDrop,
-                        onMouseOverSquare,
-                        onMouseOutSquare,
-                        squareStyles,
-                        dropSquareStyle,
-                        onDragOverSquare,
-                        onSquareClick,
-                        onSquareRightClick
-                    }) => (
-
-                            <Chessboard
-
-                                id="Chess"
-                                width={630}
-                                position={position}
-                                onDrop={onDrop}
-                                onMouseOverSquare={onMouseOverSquare}
-                                onMouseOutSquare={onMouseOutSquare}
-                                boardStyle={{
-                                    borderRadius: "5px",
-                                    boxShadow: `0 5px 15px rgba(0, 0, 0, 0.5)`
-                                }}
-                                squareStyles={squareStyles}
-                                dropSquareStyle={dropSquareStyle}
-                                onDragOverSquare={onDragOverSquare}
-                                onSquareClick={onSquareClick}
-                                onSquareRightClick={onSquareRightClick}
-                            />
-
-                        )}
-
-                </ChessImpl>
+                "justifyContent":"space-around"
+            }} >
+                    <span>Color</span>
+                    <span>From</span>
+                    <span>To</span>
             </div>
-        </>
+                {moveHistory}
+        </div>
     );
 }
 
