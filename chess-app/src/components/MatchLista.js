@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Game from './Game';
 import NewGame from './NewGame';
 import '../style.css'
@@ -18,7 +18,6 @@ class MatchLista extends Component {
 
       this.setState({ allGames: response.data });
 
-      localStorage.setItem('games', JSON.stringify(this.state.allGames));
     } catch (error) {
       console.error(error);
     }

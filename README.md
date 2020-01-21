@@ -1,8 +1,13 @@
 # mandatory-agile-scrum-js
 
 # Projektbeskrivning
-
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet modi ullam maiores, molestias repellendus aperiam, voluptatem quo voluptatum eligendi illum sint dolorum, officiis ducimus in. Sed reiciendis cum beatae praesentium.
+● I den här kursen ska vi i grupper av fyra bygga en schack applikation.
+● Varje grupp ska självständigt driva arbetet enligt agila principer.
+● Varje grupp får själva välja om de vill använda ett ramverk, installera bibliotek
+eller liknande.
+● Varje veckosprint och design-beslut i projektet ska dokumenteras i GIT, genom
+att en PR läggs upp och godkänna av teamet.
+● Projektet måste följa ett antal fördefinierade grundprinciper
 
 # Innehållsförteckning
 
@@ -96,16 +101,19 @@ taskyyyymmddhh***
 ### IN PROGRESS
 
 - [task20200102007](../../issues/7) => Philip
-- [task20200102006](../../issues/6) => Hesham
-- [task20200102004](../../issues/4) => Ricardo
+- [task20200102013](../../issues/13) => Hesham
 - [task20191220001](../../issues/1) => Ibrahim
-- [task20200102005](../../issues/5) => Ricardo
+- [task20200114018](../../issues/18) => Ibrahim
+- [task20200113015](../../issues/15) => Ricardo
 
 [Gå up](#Innehållsförteckning).
 
 ### DONE
-
+- [task20200102006](../../issues/6) => Hesham
 - [task20200102003](../../issues/3) => Ricardo
+- [task20200113011](../../issues/11) => Ricardo
+- [task20200102005](../../issues/5) => Ricardo
+- [task20200102004](../../issues/4) => Ricardo
 
 [Gå up](#Innehållsförteckning).
 
@@ -125,7 +133,8 @@ taskyyyymmddhh***
 Branch strategi genomföras att ha två huvudbranch: master och develop:
 
 - **master:** det kommer att vara branch som kommer att innehålla koden som tas i produktion.
-- **develop:** det är den branch som kommer att innehålla koden under utveckling.
+- **develop:** det är den branch som kommer att innehålla koden under utveckling efter varje PR.
+- **previous:** det är branchen som man kan gör push/pull och merge allt som helst för att testa sin eget branch med dem andra kamaraters kode innan gör sin PR till develop.
 
 ```plain
 Du som utvecklare ska utvecklas varje feature/task igenom att skapa en ny branch från _develop_ branchen. Och den här feature branchen ska inte merge till develope tills feature har slutförts.
