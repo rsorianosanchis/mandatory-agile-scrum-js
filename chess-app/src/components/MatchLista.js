@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Game from './Game';
+
 import NewGame from './NewGame';
+
 import '../style.css'
 const axios = require('axios');
 
@@ -26,6 +28,7 @@ class MatchLista extends Component {
   render() {
     return (
 
+
       <div className='container'>
         <div className='row'>
           <div className='col'>
@@ -39,6 +42,7 @@ class MatchLista extends Component {
           </div>
         </div>
       </div>
+
 
     )
   }

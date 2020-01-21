@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { Redirect } from 'react-router-dom'
 const axios = require('axios');
 
@@ -72,6 +73,7 @@ class Game extends Component {
 
       <div className='media mt-3'>
 
+
         <table>
           <thead>
           <tr>
@@ -104,6 +106,7 @@ class Game extends Component {
             </tr>
           </tbody>
         </table>
+
 
       </div>
     )
