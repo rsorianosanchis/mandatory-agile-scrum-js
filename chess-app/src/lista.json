@@ -1,1 +1,32 @@
-{"list":[{"id":"678bab64-1800-49d3-a389-ea9b5c286718","players":{"Black":"ibo","White":"ibo2"},"chessmans":"rnbqkbnr/p2pp2p/1p6/2p2pp1/8/1PP2PP1/P2PP2P/RNBQKBNR w KQkq f6 0 5","owner":"ibo","status":"created"},{"id":"53ae7edf-c68f-4291-818d-c200fc0485c8","players":{"Black":"gggg","White":"tt"},"chessmans":null,"owner":"tt","status":"created"},{"id":"2161ba6f-dfd7-4b20-adff-1a36bc8cd8f5","players":{"Black":"rrrrr","White":"ffff"},"chessmans":"rnbqkbnr/pp3p1p/4p3/2pp2p1/3P4/P5PP/1PP1PP2/RNBQKBNR w KQkq - 0 5","owner":"ffff","status":"created"},{"id":"a56f02a9-90d9-414a-a039-d57a59891555","players":{"Black":"","White":"rrr"},"chessmans":"rnbqkbnr/pppp1p1p/6p1/4p3/6P1/3PP3/PPP2P1P/RNBQKBNR b KQkq - 0 3","owner":"rrr"},{"id":"5800cdd6-b10a-4d3e-9b93-54288433fb7c","players":{"Black":"efs","White":"rrrr"},"chessmans":"rnbqkbnr/pppppppp/8/8/8/6P1/PPPPPP1P/RNBQKBNR b KQkq - 0 1","owner":"efs"}]}
+{
+  "list": [
+    {
+      "id": "53ae7edf-c68f-4291-818d-c200fc0485c8",
+      "players": {
+        "Black": "gggg",
+        "White": "tt"
+      },
+      "chessmans": null,
+      "owner": "tt",
+      "status": "created"
+    },
+    {
+      "id": "8dc82ce1-a1fb-4037-8c13-9482ebcffb1d",
+      "players": {
+        "Black": "",
+        "White": "play1"
+      },
+      "chessmans": "rnbqkbnr/pppp2pp/5p2/4p3/2P5/5P2/PP1PP1PP/RNBQKBNR w KQkq - 0 3",
+      "owner": "play1"
+    },
+    {
+      "id": "08b4483c-a86f-42b2-90a5-48cd9c77837c",
+      "players": {
+        "Black": "lolo",
+        "White": "lulu"
+      },
+      "chessmans": null,
+      "owner": "lolo"
+    }
+  ]
+}
