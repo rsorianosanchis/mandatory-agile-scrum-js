@@ -1,50 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css';
-const axios = require('axios');
-
-let obj =  {
-  "id": 223,
-  "players": {
-      "Black": "ibo",
-      "White": "jhon"
-  },
-  "chessmans": "rnbqkbnr/1ppppp1p/6p1/p7/7P/2PP4/PP2PPP1/RNBQKBNR b KQkq h3 0 3",
-  "owner": "ibo",
-  "test": "rsc"
+import './bootstrap.min.css';
+import MatchLista from './components/MatchLista';
+import GameBoard from './components/gameBoard'
+export default class App extends Component {
+  render() {
+    return (
+      <div className='container'>
+        <h4 className='title'>PLAY CHESS</h4>
+        <Router>
+          <div className="App">
+            <Route exact path="/" component={MatchLista} />
+            <Route path="/:gameId" component={GameBoard} />
+          </div>
+        </Router>
+      </div>
+    );
+  }
 }
-
-let ss = {
-
-}
-
-
-
-axios.put("http://localhost:4000/api/seeks/223",obj)
-.then(res=>{console.log(res)})
-
-axios.get("http://localhost:4000/api/seeks")
-.then(res=>{console.log(res)})
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App
