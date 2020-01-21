@@ -43,18 +43,11 @@ class Game extends Component {
         updateGame.players.White = enteredName;
       }
       console.log(updateGame);
-
-
-      async function makePostRequest() {
-
-
+ 
         let res = await axios.put(`http://localhost:4000/api/seeks/${updateGame.id}`, updateGame);
 
         console.log(res.data);
-      }
-
-      makePostRequest();
-
+   
       updateGame = { ...initialState }
       this.setState({ finished: true })
 

@@ -8,7 +8,7 @@ export default class App extends Component {
   render() {
     return (
       <div className='container'>
-        <h4 className='title'>PLAY CHESS</h4>
+
         <Router>
           <div className="App">
             <Route exact path="/" component={MatchLista} />
