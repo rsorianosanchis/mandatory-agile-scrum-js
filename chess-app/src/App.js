@@ -7,7 +7,7 @@ import GameBoard from './components/gameBoard'
 export default class App extends Component {
   render() {
     return (
-      <div className='container'>
+      <div>
 
         <Router>
           <div className="App">

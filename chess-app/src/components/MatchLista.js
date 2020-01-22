@@ -25,6 +25,7 @@ class MatchLista extends Component {
 
   render() {
     return (
+
       <div className='container'>
         <div className='row'>
           <div className='col'>
@@ -38,6 +39,7 @@ class MatchLista extends Component {
           </div>
         </div>
       </div>
+
     )
   }
 }
