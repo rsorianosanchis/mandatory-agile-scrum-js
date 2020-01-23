@@ -10,10 +10,11 @@ const initialState = {
       White: ""
     },
     chessmans: null,
-    owner: "",
+    owner: ""
   },
   error: false,
-  color: ''
+  color: '',
+
 };
 
 class NewGame extends Component {
@@ -59,12 +60,15 @@ class NewGame extends Component {
       method: 'post',
       url: 'http://localhost:4000/api/seeks',
       data: nyGame
-    });
+    })
+    .then((x)=>{
+      window.location.reload();
+    })
 
     this.setState({ ...initialState });
     nyGame = { ...initialState };
 
-
+      
   };
 
   render() {
@@ -99,7 +103,7 @@ class NewGame extends Component {
               value='white'
               onChange={this.handleChange}
             />
-            <label class="form-check-label" for="inlineRadio1">WHITE</label>
+            <label className="form-check-label" for="inlineRadio1">WHITE</label>
             <br />
             <input
               type='radio'
@@ -108,7 +112,7 @@ class NewGame extends Component {
               value='black'
               onChange={this.handleChange}
             />
-            <label class="form-check-label" for="inlineRadio1">BLACK</label>
+            <label className="form-check-label" for="inlineRadio1">BLACK</label>
 
             <br />
           </div>

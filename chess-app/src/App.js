@@ -1,36 +1,13 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css';
 import './bootstrap.min.css';
 import MatchLista from './components/MatchLista';
-import NewGame from './components/NewGame';
 import GameBoard from './components/gameBoard'
-const axios = require('axios');
-
-// let obj = {
-//   "id": 223,
-//   "players": {
-//     "Black": "ibo",
-//     "White": "jhon"
-//   },
-//   "chessmans": "rnbqkbnr/1ppppp1p/6p1/p7/7P/2PP4/PP2PPP1/RNBQKBNR b KQkq h3 0 3",
-//   "owner": "ibo",
-//   "test": "hesham"
-// }
-
-
-
-// axios.put("http://localhost:4000/api/seeks/223", obj)
-//   .then(res => { console.log(res) })
-
-// axios.get("http://localhost:4000/api/seeks")
-//   .then(res => { console.log(res) })
-
-
 export default class App extends Component {
-
-
   render() {
     return (
+<<<<<<< HEAD
       <div className='container'>
 
       <h4 className='title'>PLAY CHESS</h4>
@@ -43,11 +20,16 @@ export default class App extends Component {
           </div>
           <div>
            <GameBoard />
+=======
+      <div>
+
+        <Router>
+          <div className="App">
+            <Route exact path="/" component={MatchLista} />
+            <Route path="/:gameId" component={GameBoard} />
+>>>>>>> 4aaca0c2fafb0b6ac586b706e1955986f43e0079
           </div>
-
-
-
-        </div>
+        </Router>
       </div>
     );
   }

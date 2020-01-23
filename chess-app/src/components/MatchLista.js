@@ -1,5 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Game from './Game';
+import NewGame from './NewGame';
 import '../style.css'
 const axios = require('axios');
 
@@ -17,7 +18,6 @@ class MatchLista extends Component {
 
       this.setState({ allGames: response.data });
 
-      localStorage.setItem('games', JSON.stringify(this.state.allGames));
     } catch (error) {
       console.error(error);
     }
@@ -26,16 +26,19 @@ class MatchLista extends Component {
   render() {
     return (
 
-
-      <Fragment>
-        {this.state.allGames.map(game => {
-          console.log(game);
-
-          return <Game key={game.id} data={game} />;
-        })}
-
-      </Fragment>
-
+      <div className='container'>
+        <div className='row'>
+          <div className='col'>
+            {this.state.allGames.map(game => {
+              console.log(game);
+              return <Game key={game.id} data={game} />;
+            })}
+          </div>
+          <div className='col-sm'>
+            <NewGame />
+          </div>
+        </div>
+      </div>
 
     )
   }
