@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import Chessboard from 'chessboardjsx';
 import Chess from 'chess.js';
 import axios from 'axios';
+
 import { Link } from 'react-router-dom'
 export default class ChessImpl extends Component {
+
     static propTypes = { children: PropTypes.func };
     constructor(props) {
         super(props)
@@ -22,14 +24,17 @@ export default class ChessImpl extends Component {
             history: [],
 
             fenBoard: [],
+
             gameId: "",
         };
         this.resetGame = this.resetGame.bind(this)
         this.game = new Chess();
+ 
 
     }
 
     async componentDidMount() {
+
         this.getGames()
     }
 
@@ -59,6 +64,7 @@ export default class ChessImpl extends Component {
 
                 }
             }
+
         } catch (error) {
             console.error(error);
         }
@@ -117,6 +123,7 @@ export default class ChessImpl extends Component {
             squareStyles: squareStyling({ pieceSquare, history })
         }))
 
+
         this.makeMove()
     };
 
@@ -138,12 +145,14 @@ export default class ChessImpl extends Component {
                 console.log(this.game.history());
                 console.log(this.state.history);
 
+ 
 
             })
             .catch(error => {
                 console.error(error);
 
             });
+
     }
     resetGame = (e) => {
         this.game.reset();
@@ -172,6 +181,7 @@ export default class ChessImpl extends Component {
             });
     }
 
+ 
 
     onMouseOverSquare = square => {
         // get list of possible moves for this square
@@ -231,6 +241,7 @@ export default class ChessImpl extends Component {
         });
 
     render() {
+
         const { fen, dropSquareStyle, squareStyles, history } = this.state;
 
 
@@ -349,7 +360,8 @@ function ChessHistory(props) {
                 <span>From</span>
                 <span>To</span>
             </div>
-            {moveHistory}
+                {moveHistory}
+
         </div>
     );
 }
