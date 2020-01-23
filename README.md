@@ -59,6 +59,9 @@ att en PR läggs upp och godkänna av teamet.
   - _Fredagen 20 Dec 2019_, syfte: Skapa Backlog och Features for Sprint 1 och start Sprint 1. Förslag
   - _Torsdag 07 Gen 2020_. Möte 2
   - _Tisdag 09 Gen 2020_. Möte 3
+  - _Torsdag 16 Gen 2020_. Möte 4 arbete alla tillsammans på rummet 1 från kl.9:00
+  - _Fredag 17 Gen 2020_. Möte 5 arbete alla tillsammans på rummet 1 från kl.9:00
+  - _Torsdag 23 Gen 2020_. Möte 6 arbete alla tillsammans med sista detaljer
 
 [Gå up](#Innehållsförteckning).
 
@@ -100,15 +103,17 @@ taskyyyymmddhh***
 
 ### IN PROGRESS
 
-- [task20200102007](../../issues/7) => Philip
-- [task20200102013](../../issues/13) => Hesham
-- [task20191220001](../../issues/1) => Ibrahim
-- [task20200114018](../../issues/18) => Ibrahim
-- [task20200113015](../../issues/15) => Ricardo
+
 
 [Gå up](#Innehållsförteckning).
 
 ### DONE
+- [task20200102007](../../issues/7) => Philip
+- [task20200113012](../../issues/21) => Philip
+- [task20200102013](../../issues/13) => Hesham
+- [task20191220001](../../issues/1) => Ibrahim
+- [task20200114018](../../issues/18) => Ibrahim
+- [task20200113015](../../issues/15) => Ricardo
 - [task20200102006](../../issues/6) => Hesham
 - [task20200102003](../../issues/3) => Ricardo
 - [task20200113011](../../issues/11) => Ricardo
