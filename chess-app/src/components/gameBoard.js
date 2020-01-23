@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import Chessboard from 'chessboardjsx';
 import Chess from 'chess.js';
 import axios from 'axios';
+
 import { Link } from 'react-router-dom'
 export default class ChessImpl extends Component {
+
     static propTypes = { children: PropTypes.func };
     constructor(props) {
         super(props)
@@ -22,14 +24,17 @@ export default class ChessImpl extends Component {
             history: [],
 
             fenBoard: [],
+
             gameId: "",
         };
         this.resetGame = this.resetGame.bind(this)
         this.game = new Chess();
+ 
 
     }
 
     async componentDidMount() {
+
         this.getGames()
     }
 
@@ -59,6 +64,7 @@ export default class ChessImpl extends Component {
 
                 }
             }
+
         } catch (error) {
             console.error(error);
         }
@@ -117,6 +123,7 @@ export default class ChessImpl extends Component {
             squareStyles: squareStyling({ pieceSquare, history })
         }))
 
+
         this.makeMove()
     };
 
@@ -138,18 +145,24 @@ export default class ChessImpl extends Component {
                 console.log(this.game.history());
                 console.log(this.state.history);
 
+ 
 
             })
             .catch(error => {
                 console.error(error);
 
             });
+
     }
-resetGame = (e) => {
+    resetGame = (e) => {
         this.game.reset();
 
         this.setState(state => {
             state.fen = "start"
+            return state
+        })
+        this.setState(state => {
+            state.history = []
             return state
         })
         this.setState(state => {
@@ -160,14 +173,15 @@ resetGame = (e) => {
         const list = this.state.fenBoard;
 
         axios.put(`http://localhost:4000/api/seeks/${this.state.gameId}`, list)
-          .then((response) => {
-          // console.log(response);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
+            .then((response) => {
+                // console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
 
+ 
 
     onMouseOverSquare = square => {
         // get list of possible moves for this square
@@ -227,6 +241,7 @@ resetGame = (e) => {
         });
 
     render() {
+
         const { fen, dropSquareStyle, squareStyles, history } = this.state;
 
 
@@ -249,9 +264,8 @@ resetGame = (e) => {
                             "color": "black"
                         }}
                         to={"/"}> <i className="far fa-arrow-alt-circle-left"></i>  LOBBY </Link>
-                         <button onClick={this.resetGame}>Restart</button>
                 </header>
-                
+
                 <div style={{
                     "display": "flex",
                     "justifyContent": "space-around"
@@ -276,6 +290,24 @@ resetGame = (e) => {
                     />
                     <ChessHistory moveHistory={this.state.history} />
                 </div>
+                <footer 
+                style={{
+                    "position": "absolute",
+                    "bottom": 145,
+                    "textAlign": "center",
+                    "width": "100%"
+                }}
+                >
+                    <button onClick={this.resetGame}
+                    style={{
+                        "backgroundColor": "#478fc8",
+                        "border": "none",
+                        "color": "white",
+                        "padding": 15,
+                        "borderRadius": "27px 1px"
+                    }}
+                    >Restart Game</button>
+                </footer>
             </>
         )
     }
@@ -288,7 +320,7 @@ function ChessHistory(props) {
             return (
                 <div style={{
                     "display": "flex",
-                    "justifyContent":"space-around",
+                    "justifyContent": "space-around",
                     "fontWeight": "bold"
                 }} >
                     <span>White:</span>
@@ -301,7 +333,7 @@ function ChessHistory(props) {
             return (
                 <div style={{
                     "display": "flex",
-                    "justifyContent":"space-around"
+                    "justifyContent": "space-around"
                 }} >
                     <span>Black:</span>
                     <span>{move.from}</span>
@@ -322,13 +354,14 @@ function ChessHistory(props) {
         }}>
             <div style={{
                 "display": "flex",
-                "justifyContent":"space-around"
+                "justifyContent": "space-around"
             }} >
-                    <span>Color</span>
-                    <span>From</span>
-                    <span>To</span>
+                <span>Color</span>
+                <span>From</span>
+                <span>To</span>
             </div>
                 {moveHistory}
+
         </div>
     );
 }
