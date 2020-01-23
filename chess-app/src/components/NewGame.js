@@ -1,101 +1,124 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
+const axios = require('axios');
 
 const initialState = {
   game: {
     id: '',
-    // allMoves: [],
-    spelare1: '',
-    spelare2: null,
-    spelare1Color: '',
-    spelare2Color: null,
-    turnToMove: 'white',
-    owner: ''
+    players: {
+      Black: "",
+      White: ""
+    },
+    chessmans: null,
+
+    owner: ""
   },
-  error: false
+  error: false,
+  color: '',
+
+ 
 };
 
 class NewGame extends Component {
   state = { ...initialState };
 
   handleChange = e => {
-    this.setState({
-      game: { ...this.state.game, [e.target.name]: e.target.value }
-    });
+    console.log(e.target.value);
+    console.log(e.target.name);
+    if (e.target.name === 'owner') {
+      this.setState({
+        game: { ...this.state.game, owner: e.target.value }
+      });
+    } else if (e.target.name === 'radiocolor') {
+      this.setState({
+        game: { ...this.state.game }
+      });
+
+      this.setState(
+        { color: e.target.value }
+      );
+    };
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    //här vi tar värde som behöver att skapa en ny spel
-    const { spelare1, spelare1Color } = this.state.game;
-    //validation att förmulär är fullt
-    if (spelare1 === '' || spelare1Color === '') {
-      this.setState({ error: true });
-      //if error stops
-      return;
-    }
-    const nyGame = { ...this.state.game };
-    // man skapar här ett id med uuid library (pending att ta bort om det gör i backend)
+
+    let nyGame = { ...this.state.game };
     nyGame.id = uuid('uuid/v4');
-    if (nyGame.spelare1Color === 'white') {
-      nyGame.spelare2Color = 'black';
+    if (this.state.color === 'black') {
+      nyGame.players.Black = nyGame.owner;
+      nyGame.players.White = '';
+
     } else {
-      nyGame.spelare2Color = 'white';
+      nyGame.players.White = nyGame.owner;
+      nyGame.players.Black = '';
+
     }
-    nyGame.owner = nyGame.spelare1;
-    const axios = require('axios');
+    console.log(nyGame);
+
+
+
     axios({
       method: 'post',
       url: 'http://localhost:4000/api/seeks',
       data: nyGame
-    });
+    })
+    .then((x)=>{
+      window.location.reload();
+    })
 
-    // här vi gör reset i förmulär
     this.setState({ ...initialState });
+    nyGame = { ...initialState };
+
   };
 
   render() {
     const { error } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
-        <h5>Create new game</h5>
+        <h5>CREATE NEW GAME</h5>
         {error ? (
-          <div className='alert alert-danger mt-1 mb-1'>Form incomplet !</div>
+          <div className='alert alert-danger mt-1 mb-1'>Form incomplete !</div>
         ) : null}
-        <div className='form-group row'>
-          <label className='.label'>Spelare 1</label>
+        <div>
+          <label className='label'></label>
           <div className=''>
             <input
               type='text'
-              className='form-control'
-              placeholder='Namn Spelare 1'
-              name='spelare1'
-              value={this.state.game.spelare1}
+              className='input-name'
+              placeholder='PLAYER NAME'
+              name='owner'
+              value={this.state.game.owner}
               onChange={this.handleChange}
             />
           </div>
         </div>
         {/*----------------*/}
-        <div className='form-group row'>
-          <label className=''>Spelare 1 Color</label>
+        <div className='form-check form-check-inline'>
+          <label className=''></label>
           <div className=''>
             <input
               type='radio'
-              className='form-control'
-              name='spelare1Color'
+              className='form-check-input'
+              name='radiocolor'
               value='white'
               onChange={this.handleChange}
             />
-            White
+
+            <label className="form-check-label" for="inlineRadio1">WHITE</label>
+
             <br />
             <input
               type='radio'
-              className='form-control'
-              name='spelare1Color'
+              className='form-check-input'
+              name='radiocolor'
               value='black'
               onChange={this.handleChange}
             />
-            Black
+
+            <label className="form-check-label" for="inlineRadio1">BLACK</label>
+
+
             <br />
           </div>
         </div>

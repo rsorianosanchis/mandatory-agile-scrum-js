@@ -7,8 +7,8 @@ import GameBoard from './components/gameBoard'
 export default class App extends Component {
   render() {
     return (
-      <div className='container'>
-        <h4 className='title'>PLAY CHESS</h4>
+      <div>
+
         <Router>
           <div className="App">
             <Route exact path="/" component={MatchLista} />
