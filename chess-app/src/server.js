@@ -8,8 +8,10 @@ let matchlista = require('./lista.json')
 app.use(express.json())
 let port = 4000
 
+
 app.get('/', (req, res) => {
 
+ 
     console.log("user getting data")
     res.send("Welcome to the server");
 })
@@ -23,6 +25,7 @@ app.post("/api/seeks", (req, res) => {
 
     function hitta(n) {
 
+ 
         return n.id === id
     }
     if (arr.find(hitta)) {
@@ -33,6 +36,7 @@ app.post("/api/seeks", (req, res) => {
 
     if (Object.keys(obj).length < 2) {
 
+ 
         console.log("user entered small or empty object status 400 sent")
         res.status(400).send("fel data").end()
         return
@@ -49,6 +53,7 @@ app.post("/api/seeks", (req, res) => {
     })
     res.status(201).send("matchen skapat").end()
 
+ 
 })
 
 //get all matches 
@@ -102,7 +107,6 @@ app.put("/api/seeks/:id", (req, res) => {
         })
         annat.push(obj)
         let makenew = {
-
             "list": annat
         }
         let data = JSON.stringify(makenew)

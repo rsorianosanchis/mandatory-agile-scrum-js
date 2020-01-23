@@ -1,1 +1,13 @@
-{"list":[{"id":"ac9142c3-3c23-4fef-b4d9-57ba62dbf255","players":{"Black":"ibo","White":"test"},"chessmans":"rnbqkbnr/pppppppp/8/8/8/6P1/PPPPPP1P/RNBQKBNR b KQkq - 0 1","owner":"ibo"},{"id":"3c3e9259-9577-48b2-ba75-4725ac20685b","players":{"Black":"yy","White":"rrr"},"chessmans":"rnbqkbnr/pppppp1p/8/6p1/8/2N2P2/PPPPP1PP/R1BQKBNR b KQkq - 1 2","owner":"rrr"},{"id":"1cafdbd2-8a4b-4e9a-a50f-ae57c223a2a8","players":{"Black":"hello","White":"tt"},"chessmans":"r2qkbnr/ppp1pppp/2np4/8/7P/2N2N1b/PPPPPPP1/R1BQKB1R w KQkq - 4 4","owner":"tt"}]}
+{
+  "list": [
+    {
+      "id": "ac9142c3-3c23-4fef-b4d9-57ba62dbf255",
+      "players": {
+        "Black": "ibo",
+        "White": "test"
+      },
+      "chessmans": "rnbqkbnr/pppppp1p/8/6p1/8/6P1/PPPPPP1P/RNBQKBNR w KQkq g6 0 2",
+      "owner": "ibo"
+    }
+  ]
+}
