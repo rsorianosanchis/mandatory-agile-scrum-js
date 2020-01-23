@@ -46,8 +46,6 @@ class MatchLista extends Component {
 
       <Fragment>
         {this.state.allGames.map(game => {
-          console.log(game);
-
           return <Game key={game.id} data={game} />;
         })}
 
